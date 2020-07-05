@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // console.log("owu"); // для перегляду логів через консоль //
+    // document.write('test1') // запис в body //
+    // alert("fdfsfsdf") // модальне повідомлення (вікно), як інформаційне //
+
+    // let user = "pro100vova";
+    // console.log(user);
+    // user = "pro1ss";
+    // console.log(user);
+    //
+    // let mess1 = prompt("A'u ready?"); // prompt - виводить повідомлення для введення тексту з
+                                        // кнопками ОК та Відміна. Повертає значення String //
+    // console.log(mess1);
+    // if (mess1==null) {
+    //     alert("you entered 'Cancel'")
+    // }
+    // let age1 = 18;
+    // console.log(age1);
+    // let age2 = 16.33;
+    // console.log(age2);
+
+    // let userage1 = +prompt("enter your age"); // перетворення String в int - лише поставити знак + перед дією
+    // console.log(userage1);
+
+    // let userage2 = "55";
+    // let userage2new = parseInt(userage2);   // parseInt - також перетворення String в int
+    //                                         // parseFloat - String to Int але для чисел із комою
+    // console.log(userage2, userage2new);
+
+    // let vovaage = 5.98;
+    // let vovaage1 = ++vovaage; // ++ перед змінною спочатку додасть 1, а потім виведе на екран нове значення,
+    // //якщо ++ після змінної - не охопить додавання, тобто буде без змін
+    // console.log(vovaage1);
+    // let vasyaage = 7;
+    // let innaage = 9;
+    // let allages = vovaage*vasyaage-innaage;
+    // console.log(allages);
+    // let check1 = (vovaage<vasyaage && innaage>vasyaage);
+    // console.log(typeof check1);
+    // console.log(typeof allages);
+    // debugger;
+    // for (let i=0; i<10; i++) {
+    //     document.write(`<div>hello ${i}</div>`);
+    // }
+
+    // let numbers = [3,90,13,76,43];
+    // for (let i=0; i<numbers.length; i++) {
+    //     document.write(`<div> Таке місце по адресу в масиві: ${i}, зі значенням ${numbers[i]} </div>`);
+    // }
+
+    // let numbers = [3,90,13,76,43];
+    // let counter = 0;
+    // while (counter<numbers.length) {
+    //     document.write(`<div> Таке місце по адресу в масиві: ${numbers}, зі значенням ${numbers[counter]} </div>`);
+    //     counter++;
+    // }
+
+    // let numbers = [3,90,13,76,43];
+    // for (let i of numbers) {
+    //         document.write(`<div> Таке місце по адресу в масиві: ${numbers}, зі значенням ${i} </div>`);
+    // }
+    
+    // let arr1 = [
+    //     ["a", "b", "c"],
+    //     [1,2,3,4,5],
+    //     [true, false]
+    // ];
+    // for (const intArray1 of arr1) {
+    //     console.log(intArray1);
+    //     for (const elementOfArray of intArray1) {
+    //         console.log(elementOfArray);
+    //     }
+    // }
+    // for (let i=0; i<arr1.length;i++) {
+    //     let Ar1 = arr1[i];
+    //         console.log(Ar1);
+    //     for (let j = 0; j < Ar1.length; j++) {
+    //         let Ar2 = Ar1[j];
+    //             console.log(Ar2);
+    //     }
+    // }
+
+    let arr1 = [];
+    arr1.push("hello"); // push - добавити елемент наступним вільним значенням в масив
+    console.log(arr1);
+    arr1.push("vb");
+    console.log(arr1);
+    arr1.push("OK");
+    console.log(arr1);
+    arr1.unshift("FirstElement"); // unshift - добавити елемент в 0-й адрес в масив
+                                // shift - видалити елемент під 0-м адресом з масиву
+
+    console.log(arr1);
+    let a1 = arr1.shift();
+    console.log(a1);
+    let b1 = arr1.pop();
+    console.log(arr1);
+    console.log(b1);
+
+</script>
+
+</body>
+</html>
