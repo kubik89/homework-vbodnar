@@ -376,7 +376,60 @@
 // document.write(arr1 + '</br>');
 
 // 8. вивести масив в зворотньому порядку.
-let arr1 = [2,12,13,6,27,323,45,66,99,-18];
-for (let i = arr1.length-1; i>=0; i--) {
-   document.write(arr1[i]);
+   // let arr1 = [2,12,13,6,27,323,45,66,99,-18];
+   // for (let i = arr1.length-1; i>=0; i--) {
+   //    document.write(arr1[i]);
+   // }
+
+   // let arr1 = [2,12,13,6,27,323,45,66,99,-18];
+   // document.write(arr1.reverse());
+   //
+
+   // 10 - створити пустий масив та :
+// 1 - заповнити його 50 парними числами за допомоги циклу.
+// let newArr = [];
+// for (let i=0; i<50; i++) {
+//    newArr.push(i);
+//    if (newArr[i] %2 ===0) {
+//       document.write(newArr[i]);
+//    }
+// }
+
+// 2 - заповнити його 50 непарними числами за допомоги циклу.
+// let newArr = [];
+// for (let i=0; i<50; i++) {
+//    newArr.push(i);
+//    if (newArr[i] %2 !==0) {
+//       document.write(newArr[i]);
+//    }
+// }
+
+// 3. используя Math.random заполнить массив из ???(сколько хотите) элементов.
+// let newArr = [];
+// newArr.length=20;
+// for (const newArrElement of newArr) {
+// document.write(Math.floor(Math.random(newArr)*10));
+// }
+
+//  - диапазон рандома 8 до 732.
+// let newArr = [];
+// newArr.length=20;
+// for (const newArrElement of newArr) {
+// newArr = (Math.floor(Math.random(newArr)*1000));
+//    if (newArr<732 && newArr>8) {
+//       console.log(newArr);
+//    }
+// }
+
+// 2. вывести на консоль  каждый третий елемент
+let newArr = [];
+newArr.length=10;
+for (const newArrElement of newArr) {
+   newArr = (Math.floor(Math.random(newArr)*1000));
+   if (newArr<732 && newArr>8) {
+      // let counter1 = 0;
+      // while (counter1<newArr.length) {
+         console.log(newArr);
+         // counter1+=3;
+      }
 }
