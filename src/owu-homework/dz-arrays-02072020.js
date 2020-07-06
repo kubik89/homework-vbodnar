@@ -367,10 +367,16 @@
 // }
 
 // 7. замінити кожне число кратне 3 на слово "okten"
+// let arr1 = [2,12,13,6,27,323,45,66,99,-18];
+// for (let i=0; i<arr1.length;i++) {
+//     if (arr1[i]%3===0) {
+//         arr1[i]="okten";
+//     }
+// }
+// document.write(arr1 + '</br>');
+
+// 8. вивести масив в зворотньому порядку.
 let arr1 = [2,12,13,6,27,323,45,66,99,-18];
-for (let i=0; i<arr1.length;i++) {
-    if (arr1[i]%3===0) {
-        arr1[i]="okten";
-    }
+for (let i = arr1.length-1; i>=0; i--) {
+   document.write(arr1[i]);
 }
-document.write(arr1 + '</br>');
