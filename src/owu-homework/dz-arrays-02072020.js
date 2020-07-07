@@ -496,15 +496,25 @@
 
 // - створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
 
-let newArr = [];
-for (let i = 0; i < 10; i++) {
-    newArr.push(Math.floor(Math.random() * 10));
-}
-console.log(newArr);
-let newArr1 = [];
-for (let i = 0; i < newArr.length; i++) {
-    newArr1.push(newArr[i] * 5);
-}
-console.log(newArr1);
+// let newArr = [];
+// for (let i = 0; i < 10; i++) {
+//     newArr.push(Math.floor(Math.random() * 10));
+// }
+// console.log(newArr);
+// let newArr1 = [];
+// for (let i = 0; i < newArr.length; i++) {
+//     newArr1.push(newArr[i] * 5);
+// }
+// console.log(newArr1);
 
-//
+// - створити масив з будь якими значеннями (стрінги, числа, і тд...). пройтись по ньому, і якщо об'єкт є числом,
+//  додати його в інший масив.
+
+let someArr = ["Coca", 15, 'x', 114, "Microsoft", 190, true, 66, false];
+let someNewArr = [];
+for (let i = 0; i < someArr.length; i++) {
+    if (typeof someArr[i] === "number") {
+        someNewArr.push(someArr[i]);
+    }
+}
+    console.log(someNewArr);
