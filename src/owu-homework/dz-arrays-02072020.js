@@ -179,7 +179,7 @@
 
 // - Відтворити роботу годинника, відрахувавши 2 хвилини (2 цикли! 1й - хвилини, 2й - секунди)
 // for (let m=0; m<2; m++) {
-//     console.log(m + "хвилина");
+//     console.log(m + " хвилина");
 //     for (let s=0; s<60; s++){
 //         console.log(m + " хвилина " + s + " секунд")
 //     }
@@ -188,7 +188,16 @@
 // - Відтворити роботу годинника, відрахувавши  2 години 20 хвилини (3 цикли! 1й - години, 2й - хвилини, 3й - секунди)
 // for (let h=0; h<=2; h++) {
 //     console.log(h + " година");
-//     for (let m=0; m<20; m++) {
+//     if (h===2) {
+//         for (let m=0; m<20; m++) {
+//             console.log(h + " година " + m + " хвилина");
+//             for (let s=0; s<60; s++){
+//                 console.log(h + " година " +m + " хвилина " + s + " секунд")
+//             }
+//         }
+//     break;
+//     }
+//     for (let m=0; m<60; m++) {
 //         console.log(h + " година " + m + " хвилина");
 //         for (let s=0; s<60; s++){
 //             console.log(h + " година " +m + " хвилина " + s + " секунд")
@@ -424,7 +433,7 @@
 // //    }
 // }
 // let newArr = [];
-// const MAX_NUMBER = 1000;
+// const MAX_NUMBER = 732;
 // const MIN_NUMBER = 8;
 //
 // while (newArr.length<20){
@@ -510,11 +519,11 @@
 // - створити масив з будь якими значеннями (стрінги, числа, і тд...). пройтись по ньому, і якщо об'єкт є числом,
 //  додати його в інший масив.
 
-let someArr = ["Coca", 15, 'x', 114, "Microsoft", 190, true, 66, false];
-let someNewArr = [];
-for (let i = 0; i < someArr.length; i++) {
-    if (typeof someArr[i] === "number") {
-        someNewArr.push(someArr[i]);
-    }
-}
-    console.log(someNewArr);
+// let someArr = ["Coca", 15, 'x', 114, "Microsoft", 190, true, 66, false];
+// let someNewArr = [];
+// for (let i = 0; i < someArr.length; i++) {
+//     if (typeof someArr[i] === "number") {
+//         someNewArr.push(someArr[i]);
+//     }
+// }
+//     console.log(someNewArr);
