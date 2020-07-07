@@ -274,35 +274,42 @@
 
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice перетворіть масив в [1, 4, 5].
 // let arr1 = [1, 2, 3, 4, 5];
-// let newA1 = [];
-// newA1.unshift(arr1.shift());
-// newA1.push(arr1.slice(2, 4));
-// document.write(newA1);
+// arr1.splice(1, 2);
+// document.write(arr1);
 
-// - - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив
-// [1, 2, 3, 'a', 'b', 'c', 4, 5].
+// - - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього
+// масив [1, 2, 3, 'a', 'b', 'c', 4, 5].
 // let arr1 = [1, 2, 3, 4, 5];
 // let arr2 = ["a", "b", "c"];
-// let newarr1 = arr1.pop();
-// let newarr2 = arr1.pop();
-// arr1.push(arr2);
-// arr1.push(newarr2);
-// arr1.push(newarr1);
-// document.write(arr1);
+// let del45 = (arr1.splice(3));
+// // console.log(arr1);
+// for (let i = 0; i < arr2.length; i++) {
+//     arr1.push(arr2[i]);
+// }
+// for (let i = 0; i < del45.length; i++) {
+//     arr1.push(del45[i]);
+// }
+// console.log(arr1);
 
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив
 // [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
 
-// let arr1 = [1, 2, 3, 4, 5];
-// let newarr1 = arr1.shift();
-// arr1.unshift("b");
-// arr1.unshift("a");
-// arr1.unshift(newarr1);
-// let newarr2 = arr1.pop(); //5
-// arr1.push("c");
-// arr1.push(newarr2);
-// arr1.push("e");
-// document.write(arr1);
+let arr1 = [1, 2, 3, 4, 5];
+let firstRemove = arr1.splice(0, 1);
+console.log(arr1);
+arr1.unshift('b');
+arr1.unshift('a');
+    for (let i = 0; i < firstRemove.length; i++) {
+    arr1.unshift(firstRemove[i]);
+    }
+console.log(arr1);
+    let valueFive = arr1.splice(6);
+arr1.push("c");
+for (let i = 0; i < valueFive.length; i++) {
+    arr1.push(valueFive[i]);
+}
+arr1.push("e");
+console.log(arr1);
 
 // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
 // let newArr = [12,45,78,5,11,24,65,22,42,10];
