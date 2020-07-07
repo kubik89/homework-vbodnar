@@ -99,7 +99,7 @@
 //     console.log(arr1Int[a]);
 // }
 
- // - Створити масив з 10 елементів будь-якого типу. Вивести в консоль всі його елементи в циклі.
+// - Створити масив з 10 елементів будь-якого типу. Вивести в консоль всі його елементи в циклі.
 // let anyArr1 = ["string1", true, 1, 223, false, "int", "my name", 'x', 's', 123];
 // for (const anyArr1new in anyArr1) {
 //     console.log(anyArr1[anyArr1new]);
@@ -316,7 +316,7 @@
 // ====================
 
 // зробити масив з 10 чисел [2,17,13,6,22,31,45,66,100,-18] та:
-    //1. перебрати його циклом while
+//1. перебрати його циклом while
 // let arr1 = [2,17,13,6,22,31,45,66,100,-18];
 // let counter1 = 0;
 // while (counter1<arr1.length) {
@@ -376,16 +376,16 @@
 // document.write(arr1 + '</br>');
 
 // 8. вивести масив в зворотньому порядку.
-   // let arr1 = [2,12,13,6,27,323,45,66,99,-18];
-   // for (let i = arr1.length-1; i>=0; i--) {
-   //    document.write(arr1[i]);
-   // }
+// let arr1 = [2,12,13,6,27,323,45,66,99,-18];
+// for (let i = arr1.length-1; i>=0; i--) {
+//    document.write(arr1[i]);
+// }
 
-   // let arr1 = [2,12,13,6,27,323,45,66,99,-18];
-   // document.write(arr1.reverse());
-   //
+// let arr1 = [2,12,13,6,27,323,45,66,99,-18];
+// document.write(arr1.reverse());
+//
 
-   // 10 - створити пустий масив та :
+// 10 - створити пустий масив та :
 // 1 - заповнити його 50 парними числами за допомоги циклу.
 // let newArr = [];
 // for (let i=0; i<50; i++) {
@@ -412,24 +412,99 @@
 // }
 
 //  - диапазон рандома 8 до 732.
-// let newArr = [];
-// newArr.length=20;
-// for (const newArrElement of newArr) {
-// newArr = (Math.floor(Math.random(newArr)*1000));
-//    if (newArr<732 && newArr>8) {
-//       console.log(newArr);
-//    }
+
+
+
+// for (const element of newArr) {
+//
+//
+// //
+// //    if (newArrElement<732 && newArrElement>8) {
+// //       console.log(newArrElement);
+// //    }
 // }
+// let newArr = [];
+// const MAX_NUMBER = 1000;
+// const MIN_NUMBER = 8;
+//
+// while (newArr.length<20){
+//     const randomNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+//     if (randomNumber < 732 && randomNumber > 8) {
+//         newArr.push(randomNumber);
+//     }
+// }
+// console.log(newArr);
+
+
+// console.log(newArr);
 
 // 2. вывести на консоль  каждый третий елемент
+// let newArr = [];
+// const MAX_NUMBER = 1000;
+// const MIN_NUMBER = 8;
+//
+// while (newArr.length<20){
+//     const randomNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+//     if (randomNumber < 732 && randomNumber > 8) {
+//         newArr.push(randomNumber);
+//     }
+// }
+// for (let i = 0; i < newArr.length; i++ ) {
+// console.log(newArr[i]);
+// i+=3;
+// }
+
+// 4. вывести на консоль  каждый третий елемент
+//  но при условии что он имеет парное значение и
+//  записать их в другой массив.
+// let newArr = [];
+// let arr2 = [];
+// const MAX_NUMBER = 1000;
+// const MIN_NUMBER = 8;
+//
+// while (newArr.length<20){
+//     const randomNumber = Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+//     if (randomNumber < 732 && randomNumber > 8) {
+//         newArr.push(randomNumber);
+//     }
+// }
+// for (let i = 0; i < newArr.length; i++ ) {
+//     if (newArr[i]%2===0) {
+//     // console.log(newArr[i]);
+//     arr2.push(newArr[i]);
+//         console.log(arr2);
+//     }
+//     i+=3;
+// }
+
+// - 5. Вывести каждый елемент массива у которого соседний с права элемент - парный
+// let arrNumb = [12, 65, 76, 2, 88, 90, 111, 123, 12, 92];
+// for (let i = 0; i < arrNumb.length; i++) {
+//     // console.log(arrNumb[0]);
+//     if (arrNumb[i+1]%2===0) {
+//     console.log(arrNumb[i+1]);
+//     }
+// }
+
+// - масив з числами [100,250,50,168,120,345,188], Які характеризують вартість окремої покупки. обрахувати середній чек.
+// let allBills = [100,250,50,168,120,345,188];
+// let summ = 0;
+// for (let i = 0; i < allBills.length; i++) {
+//     summ += allBills[i];
+// }
+//     console.log(summ/allBills.length-1);
+
+// - створити масив з рандомними значеннями, помножити всі його елементи на 5 та перемістити їх в інший масив.
+
 let newArr = [];
-newArr.length=10;
-for (const newArrElement of newArr) {
-   newArr = (Math.floor(Math.random(newArr)*1000));
-   if (newArr<732 && newArr>8) {
-      // let counter1 = 0;
-      // while (counter1<newArr.length) {
-         console.log(newArr);
-         // counter1+=3;
-      }
+for (let i = 0; i < 10; i++) {
+    newArr.push(Math.floor(Math.random() * 10));
 }
+console.log(newArr);
+let newArr1 = [];
+for (let i = 0; i < newArr.length; i++) {
+    newArr1.push(newArr[i] * 5);
+}
+console.log(newArr1);
+
+//
