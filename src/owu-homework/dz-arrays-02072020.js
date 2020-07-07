@@ -294,22 +294,22 @@
 // - Дан масив [1, 2, 3, 4, 5]. За допомогою методу/функції splice зробіть з нього масив
 // [1, 'a', 'b', 2, 3, 4, 'c', 5, 'e'].
 
-let arr1 = [1, 2, 3, 4, 5];
-let firstRemove = arr1.splice(0, 1);
-console.log(arr1);
-arr1.unshift('b');
-arr1.unshift('a');
-    for (let i = 0; i < firstRemove.length; i++) {
-    arr1.unshift(firstRemove[i]);
-    }
-console.log(arr1);
-    let valueFive = arr1.splice(6);
-arr1.push("c");
-for (let i = 0; i < valueFive.length; i++) {
-    arr1.push(valueFive[i]);
-}
-arr1.push("e");
-console.log(arr1);
+// let arr1 = [1, 2, 3, 4, 5];
+// let firstRemove = arr1.splice(0, 1);
+// console.log(arr1);
+// arr1.unshift('b');
+// arr1.unshift('a');
+//     for (let i = 0; i < firstRemove.length; i++) {
+//     arr1.unshift(firstRemove[i]);
+//     }
+// console.log(arr1);
+//     let valueFive = arr1.splice(6);
+// arr1.push("c");
+// for (let i = 0; i < valueFive.length; i++) {
+//     arr1.push(valueFive[i]);
+// }
+// arr1.push("e");
+// console.log(arr1);
 
 // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
 // let newArr = [12,45,78,5,11,24,65,22,42,10];

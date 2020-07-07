@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="point1"></div>
+<div class="trg1"></div>
+<p class="trg1"></p>
+
+
+<script>
+
+    let h1 = document.createElement('h1');
+    h1.innerText = "hello vb h1.Inner Text";
+    console.log(h1);
+    // document.body.appendChild(h1)
+
+    let point11 = document.getElementById("point1");
+    point11.appendChild(h1);
+    // let targets = document.getElementsByClassName("trg1");
+
+// можна присвоїти кожному елементу div чи p окрему змінну і для кожного вписати елемент h1 (як тут)
+    // let cloneNodeH1 = h1.cloneNode(true); // - cloneNode() - це метод, який копіює всі значення
+    // targets[0].appendChild(cloneNodeH1); // для класу з індексом 0 клонувати h1
+    //
+    // let cloneNodeH12 = h1.cloneNode(true);
+    // targets[1].appendChild(cloneNodeH12);
+
+// можна простіше за допомогою масиву клонуючи кожен елемент h1 (в ньому true - це все що він містить)
+    let targets = document.getElementsByClassName("trg1"); // тут всі класи із trg1 - це div та p
+    for (const target of targets) { // для всіх div та p
+        let node = h1.cloneNode(true); // клонуємо h1 та все, що вона містить і додаємо в змінну node
+        target.appendChild(node); // для кожної div чи p по черзі присвоюємо значення h1
+    }
+
+
+</script>
+
+
+<script src="DOM.js">
+
+</script>
+
+</body>
+</html>
