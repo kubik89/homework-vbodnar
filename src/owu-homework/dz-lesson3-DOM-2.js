@@ -78,14 +78,101 @@
 // }
 
 // - За допомогою 2х циклів циклів проітеррувати  даний масив і масив кожного об'єкта.
- let users2 = [{name: 'vasya', age: 31, status: false, skills: ['java', 'js']},
- {name: 'petya', age: 30, status: true, skills: ['java', 'js', 'html']},
- {name: 'kolya', age: 29, status: true, skills: ['mysql', ',mongo']},
- {name: 'olya', age: 28, status: false, skills: ['java', 'js']},
- {name: 'max', age: 30, status: true, skills: ['mysql', ',mongo']}];
+//  let users2 = [{name: 'vasya', age: 31, status: false, skills: ['java', 'js']},
+//  {name: 'petya', age: 30, status: true, skills: ['java', 'js', 'html']},
+//  {name: 'kolya', age: 29, status: true, skills: ['mysql', ',mongo']},
+//  {name: 'olya', age: 28, status: false, skills: ['java', 'js']},
+//  {name: 'max', age: 30, status: true, skills: ['mysql', ',mongo']}];
+//
+// for (let i = 0; i < users2.length; i++) {
+//     console.log(Object.keys(users2[i]));
+//     console.log(Object.values(users2[i].skills));
+// }
 
-for (let i = 0; i < users2.length; i++) {
-    console.log(Object.keys(users2[i]));
-    console.log(Object.values(users2[i].skills));
+let usersss = [{
+    name: 'vasya',
+    age: 31,
+    status: false,
+    address: {city: 'Lviv', country: 'Ukraine', street: 'Shevchenko', houseNumber: 1}
+}, {
+    name: 'petya',
+    age: 30,
+    status: true,
+    address: {city: 'New York', country: 'USA', street: 'East str', houseNumber: 21}
+}, {
+    name: 'kolya',
+    age: 29,
+    status: true,
+    address: {city: 'Budapest', country: 'Hungary', street: 'Kuraku', houseNumber: 78}
+}, {
+    name: 'olya',
+    age: 28,
+    status: false,
+    address: {city: 'Prague', country: 'Czech', street: 'Paster', houseNumber: 56}
+}, {
+    name: 'max',
+    age: 30,
+    status: true,
+    address: {city: 'Istanbul', country: 'Turkey', street: 'Mikar', houseNumber: 39}
+}, {
+    name: 'anya',
+    age: 31,
+    status: false,
+    address: {city: 'Rio', country: 'Brasil', street: 'Ronaldi', houseNumber: 5}
+}, {
+    name: 'oleg',
+    age: 28,
+    status: false,
+    address: {city: 'Montreal', country: 'Canada', street: 'Acusto', houseNumber: 90}
+}, {
+    name: 'andrey',
+    age: 29,
+    status: true,
+    address: {city: 'Quebeck', country: 'Canada', street: 'Binaro', houseNumber: 33}
+}, {
+    name: 'masha',
+    age: 30,
+    status: true,
+    address: {city: 'Moscow', country: 'Russia', street: 'Gogolia', houseNumber: 1}
+}, {
+    name: 'olya',
+    age: 31,
+    status: false,
+    address: {city: 'Portland', country: 'USA', street: 'Forest str', houseNumber: 4}
+}, {
+    name: 'max',
+    age: 31,
+    status: true,
+    address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
+}];
+
+// - З масиву users за допомогою циклу витягнути адреси користувачів і записати (скопіювати) їх в інший порожній масив.
+// let address = [];
+// for (let i = 0; i < usersss.length; i++) {
+//     address.push(usersss[i].address);
+// }
+// console.log(address);
+
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок
+// за допомоги document.createElement. Всі данні в одному блоці.
+// console.log(usersss.length);
+// for (let i = 0; i < usersss.length; i++) {
+//     let div = document.createElement("div");
+//         div.innerText = `Користувач ${usersss[i].name}`;
+//         document.body.appendChild(div); // додаю вище створений div в body, бо div в html ще нестворений
+// }
+
+// - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за
+// допомоги document.createElement, розділивши всі властивості по своїм блокам (div>div*4)
+
+let container = document.getElementById("container");
+for (let i = 0; i < usersss.length; i++) {
+    let externalDiv = document.createElement("div");
+//     div.innerText = `Користувач ${usersss[i].name}`;
+//
+    for (const someField in i) { // перебираю внутрішні обєкти чи масиви
+        let innerDiv = document.createElement("div");
+        externalDiv.appendChild(innerDiv);
+    }
+container.appendChild(externalDiv); // додаю вище створені div в документ
 }
-
