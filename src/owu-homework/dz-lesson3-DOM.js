@@ -202,7 +202,7 @@ for (let i = 0; i < elementsByTagName4.length; i++) {
 // }
 
 // отримати елементи з класом text2 та змінити їм текст на довільне значення
-let elementsByClassName2 = document.getElementsByClassName("text2");
-for (let i = 0; i < elementsByClassName2.length; i++) {
-    elementsByClassName2[i].innerHTML = "This is my individual text";
-}
+// let elementsByClassName2 = document.getElementsByClassName("text2");
+// for (let i = 0; i < elementsByClassName2.length; i++) {
+//     elementsByClassName2[i].innerHTML = "This is my individual text";
+// }
