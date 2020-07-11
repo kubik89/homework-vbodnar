@@ -96,15 +96,66 @@ let c = 11;
 
 // - створити функцію яка повертає найменьше число з масиву
 
-function smallerElement() {
-    let smaller = arguments[0];
-    for (let i = 0; i < arguments.length; i++) {
-        if (arguments[i]<smaller) {
-            smaller = arguments[i];
-        }
+// function smallerElement() {
+//     let smaller = arguments[0];
+//     for (let i = 0; i < arguments.length; i++) {
+//         if (arguments[i]<smaller) {
+//             smaller = arguments[i];
+//         }
+//     }
+//     return (smaller);
+// }
+// let newArr1 = smallerElement(300, 19, 1, 199, 205, -100, 19);
+// console.log(newArr1);
+
+// - створити функцію яка приймає масив чисел та складає значення елементів масиву та повертає його.
+// function sumOfArray() {
+//     let sum = 0;
+//     for (let i = 0; i < arguments.length; i++) {
+//         sum+= arguments[i];
+//     }
+//         return sum;
+// }
+//
+// let newArr1 = sumOfArray(300, 19, 1, 199, 205, -100, 19);
+// console.log(newArr1);
+
+// - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+// function sumOfArray() {
+//     let sum = 0;
+//     for (let i = 0; i < arguments.length; i++) {
+//         sum+= arguments[i];
+//     }
+//     return sum/arguments.length;
+// }
+//
+// let newArr1 = sumOfArray(300, 19, 1, 199, 205, -100, 19);
+// console.log(newArr1);
+//
+
+// - Створити функцію яка приймає масив будь яких объектів, та повертає значення кількості об'єктів в масиві
+// function objLength() {
+//         return Object.keys(arguments);
+//     }
+// let newVar = objLength = ([
+//     {name: "Vova", age: 55, child: ["Veronika", "Adelina"]},
+//     {name: "Oleg", age: 11, child: ["Veronika2", "Adelina1"]},
+// ]);
+// console.log(newVar);
+
+// - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
+function objLength() {
+   // return Object.keys(arguments).length;
+    let counter = 0;
+    for (const arg in arguments) {
+        counter++;
     }
-    return (smaller);
+    console.log(counter);
 }
-let newArr1 = smallerElement(300, 19, 1, 199, 205, -100, 19);
-console.log(newArr1);
+let newVar = objLength = ([
+    {name: "Vova", age: 55, child: ["Veronika", "Adelina"]},
+    {name: "Oleg", age: 11, child: ["Veronika2", "Adelina1"]},
+]);
+// console.log(newVar);
+
 
