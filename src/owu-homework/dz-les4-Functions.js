@@ -143,19 +143,38 @@ let c = 11;
 // ]);
 // console.log(newVar);
 
-// - Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
-function objLength() {
-   // return Object.keys(arguments).length;
-    let counter = 0;
-    for (const arg in arguments) {
-        counter++;
-    }
-    console.log(counter);
+// - !!!  Створити функцію яка приймає масив будь яких объектів, та повертає загальн кількість полів в них
+// function objLength() {
+//         return (Object.keys(arguments).length);
+// }
+// objLength = (
+//     {name: "Vova", age: 55},
+//     {name: "Oleg", age: 11}
+// );
+ // Чому нижче для масиву а1 працює метод, а для ф-ції ні
+// let a1 = [
+//     {name: "Vova", age: 55, child: ["Veronika", "Adelina"]},
+//     {name: "Oleg", age: 11, child: ["Veronika2", "Adelina1"]},
+// ];
+// console.log(Object.keys(a1).length);
+
+// - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+
+function summOfArrays(a1, b1) {
+let summArr =[];
+let count = 0;
+if (a1.length > b1.length) {
+    count = a1.length;
 }
-let newVar = objLength = ([
-    {name: "Vova", age: 55, child: ["Veronika", "Adelina"]},
-    {name: "Oleg", age: 11, child: ["Veronika2", "Adelina1"]},
-]);
-// console.log(newVar);
-
-
+else {
+    count = b1.length;
+}
+for (let i = 0; i < a1.length; i++) {
+    let summElement = (a1[i] || 0) + (b1[i] || 0); // якщо один з них false або менший, тоді враховується більший
+    // щоб взяти масив із більшою кількістю елементів, якщо їх довжина не однакова
+    summArr.push(summElement);
+    }
+    return summArr;
+}
+let result = summOfArrays([1,2,3,4,8,1], [2,3,4,5]);
+    console.log(result);
