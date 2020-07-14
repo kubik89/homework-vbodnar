@@ -287,10 +287,10 @@ let result = arrIndPlusOne([1,2,5,4,8,100], 1);
 //             let townID = townEl.townID;
 //             if (userId===townID) {
 //                 userEl.address = townEl;
-//                 console.log(userEl);
 //             }
 //         }
 //     }
+// return user;
 // }
 
 // інший простіший розвязок
@@ -302,7 +302,7 @@ function userAndTowm(user, town) {
             }
         }
     }
-    console.log(user);
+    return (user);
 }
 
 let userInfo = userAndTowm ([
@@ -316,3 +316,5 @@ let userInfo = userAndTowm ([
         {townID: 3, townName: "Lviv"}
     ]
 );
+console.log(userInfo);
+
