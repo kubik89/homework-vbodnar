@@ -227,12 +227,13 @@ let result = arrIndPlusOne([1,2,5,4,8,100], 1);
 // список цих автомобілів.
 
 function addAvtoToElem(arrAuto, elemID) {
-    for (let i = 0; i < arrAuto.length; i++) {
-        const arrAutoElement = arrAuto[i];
-        let elementById = document.getElementById(elemID);
-        console.log(elementById);
-        // return elementById.appendChild(arrAutoElement);
+    for (const car1Element of arrAuto) {
+        console.log(car1Element);
+        // let elementById = document.getElementById(elemID);
+        // elementById.innerText = car1Element;
+        // elementById.appendChild(car1Element);
     }
+        return document.body;
 }
 let car1 = addAvtoToElem(["Chevrolet", "Skoda", "BMW"], 2);
 console.log(car1);
