@@ -160,21 +160,79 @@ let c = 11;
 
 // - створити функцію  яка скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
 
-function summOfArrays(a1, b1) {
-let summArr =[];
-let count = 0;
-if (a1.length > b1.length) {
-    count = a1.length;
+// function summOfArrays(a1, b1) {
+// let summArr =[];
+// let count = 0;
+// if (a1.length > b1.length) {
+//     count = a1.length;
+// }
+// else {
+//     count = b1.length;
+// }
+// for (let i = 0; i < a1.length; i++) {
+//     let summElement = (a1[i] || 0) + (b1[i] || 0); // якщо один з них false або менший, тоді враховується більший
+//     // щоб взяти масив із більшою кількістю елементів, якщо їх довжина не однакова
+//     summArr.push(summElement);
+//     }
+//     return summArr;
+// }
+// let result = summOfArrays([1,2,3,4,8,1], [2,3,4,5]);
+//     console.log(result);
+
+// приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+
+function arrIndPlusOne (array, index) {
+    let a = array[index]; // =2
+    array[index] = array[index+1]; // 5
+    array[index+1] = a;
+    return array;
 }
-else {
-    count = b1.length;
-}
-for (let i = 0; i < a1.length; i++) {
-    let summElement = (a1[i] || 0) + (b1[i] || 0); // якщо один з них false або менший, тоді враховується більший
-    // щоб взяти масив із більшою кількістю елементів, якщо їх довжина не однакова
-    summArr.push(summElement);
+//
+let result = arrIndPlusOne([1,2,5,4,8,100], 1);
+// console.log(result);
+
+// створити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок
+// не нульових значень.
+// function arrLastIndex (array1) {
+//     let zero = [];
+//     for (let i = 0; i < array1.length; i++) {
+//         if (array1[i]===0) {
+//             zero.push(array1.splice(i, 1));
+//         }
+//     }
+//     return array1.concat(zero);
+// }
+// let result1 = arrLastIndex([1,2,0,4,8,100]);
+// console.log(result1);
+//
+// // - Додає в боді блок з текстом "Hello owu"
+// function addBody(tag, text) {
+//     let element = document.createElement(tag);
+//     element.innerText = text;
+//     return document.body.appendChild(element);
+// }
+// let elem = addBody("b", "hello owu");
+// console.log(elem);
+
+// Додає в боді елемент з текстом . Тип елементу та текст отримати через аргументи
+// function addTextToBody (tag, text) {
+//     let element = document.createElement(tag);
+//     element.innerText = text;
+//     return document.body.appendChild(element);
+// }
+// let elem = addTextToBody("div", "hello owu");
+// console.log(elem);
+
+// приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати
+// список цих автомобілів.
+
+function addAvtoToElem(arrAuto, elemID) {
+    for (let i = 0; i < arrAuto.length; i++) {
+        const arrAutoElement = arrAuto[i];
+        let elementById = document.getElementById(elemID);
+        console.log(elementById);
+        // return elementById.appendChild(arrAutoElement);
     }
-    return summArr;
 }
-let result = summOfArrays([1,2,3,4,8,1], [2,3,4,5]);
-    console.log(result);
+let car1 = addAvtoToElem(["Chevrolet", "Skoda", "BMW"], 2);
+console.log(car1);
