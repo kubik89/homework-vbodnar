@@ -226,14 +226,93 @@ let result = arrIndPlusOne([1,2,5,4,8,100], 1);
 // приймає масив автомобілів (можна взяти з попередніх дз ),та  індентифікатор елемнту в який потрібно додати
 // список цих автомобілів.
 
-function addAvtoToElem(arrAuto, elemID) {
-    for (const car1Element of arrAuto) {
-        console.log(car1Element);
-        // let elementById = document.getElementById(elemID);
-        // elementById.innerText = car1Element;
-        // elementById.appendChild(car1Element);
+// function addAvtoToElem(arrAuto, elemID) {
+//         let elementById = document.getElementById(elemID);
+//         elementById.innerText = arrAuto;
+//         document.body.appendChild(elementById);
+//         return document.body;
+//     }
+// let car1 = addAvtoToElem(["Chevrolet", "Skoda", "BMW", "Pegeout"], 2);
+// console.log(car1);
+
+// - Для кожного автомобіля створити свій блок, та додати його в елемент, індентифікатор якого ви отримали.
+// Всі властивості авто в обному блоці
+// function addAvtoToBlock(arrAuto, elemID) {
+//     for (let i = 0; i < arrAuto.length; i++) {
+//         const elemIDElement = arrAuto[i];
+//         let bElement = document.createElement("b");
+//         bElement.innerText = elemIDElement;
+//         let elementById = document.getElementById(elemID);
+//         elementById.appendChild(bElement);
+//     }
+//         return document.body;
+// }
+// let car1 = addAvtoToBlock(["Chevrolet", "Skoda", "BMW", "Pegeout"], 2);
+// console.log(car1);
+
+// Для кожної властивості створити всередені блока автомоблія свій блок
+// function addAvtoDetToBlock(AutoDetails) {
+//
+//     for (let i = 0; i < AutoDetails.length; i++) {
+//         const autoD = AutoDetails[i];
+//         let divElement = document.createElement("div");
+//         document.body.appendChild(divElement);
+//         let keys = Object.keys(autoD);
+//         for (let j = 0; j < keys.length; j++) {
+//             const autoDetail = keys[j];
+//             let elementB = document.createElement("b");
+//             elementB.innerText = autoDetail;
+//             divElement.appendChild(elementB);
+//         }
+//     }
+//     return document.body;
+//     }
+//
+// let car1 = addAvtoDetToBlock ([
+//     {name: "Chevrolet", year: 2012, color: "white"},
+//     {name: "Skoda", year: 2020, color: "blue"},
+//     {name: "BMW", year: 2010, color: "black"}
+//     ]);
+// console.log(car1);
+
+// - функція приймає 2 масиви з рівною кількістю об'єктів та з'єднює в один об'єкт користувача та місто
+// з відповідними "id" та "user_id",
+
+// function userAndTowm(user, town) {
+//     for (let i = 0; i < user.length; i++) {
+//         const userEl = user[i];
+//         let userId = userEl.userId;
+//         for (let j = 0; j < town.length; j++) {
+//             const townEl = town[j];
+//             let townID = townEl.townID;
+//             if (userId===townID) {
+//                 userEl.address = townEl;
+//                 console.log(userEl);
+//             }
+//         }
+//     }
+// }
+
+// інший простіший розвязок
+function userAndTowm(user, town) {
+    for (let i = 0; i < user.length; i++) {
+        for (let j = 0; j < town.length; j++) {
+            if (user[i].userId === town[j].townID) {
+            user[i].address = town[j];
+            }
+        }
     }
-        return document.body;
+    console.log(user);
 }
-let car1 = addAvtoToElem(["Chevrolet", "Skoda", "BMW"], 2);
-console.log(car1);
+
+let userInfo = userAndTowm ([
+    {userId: 1, userName: "Volodymyr", userLastName: "Bodnar"},
+    {userId: 5, userName: "Svitlana", userLastName: "Bodnar"},
+    {userId: 3, userName: "Max", userLastName: "Chaplyak"}
+    ],
+    [
+        {townID: 4, townName: "Novyi Rozdil"},
+        {townID: 5, townName: "Stryi"},
+        {townID: 3, townName: "Lviv"}
+    ]
+);
