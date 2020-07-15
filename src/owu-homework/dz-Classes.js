@@ -52,31 +52,82 @@ let tagH1 = new TagInfo("h1", "отображается самым крупны�
 // -- info () - яка виводить всю інформацію про автомобіль
 // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
+// -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і добавляет його в поточний об'єкт car
+
+// class Car {
+//     constructor(model, producer, mYear, maxSpeed, newSpeed, engine, newValue) {
+//         this.model = model;
+//         this.producer = producer;
+//         this.mYear = mYear;
+//         this.newValue = newValue;
+//         this.maxSpeed = maxSpeed;
+//         this.newSpeed = newSpeed;
+//         this.engine = engine;
+//         this.driver = null;
+//     }
+//     drive() {
+//         console.log(`We're going with speed ${this.maxSpeed} km/h`);
+//     }
+//     info () {
+//         // console.log(`Модель ${this.model}, Виробник ${this.producer}, Рік виробництва ${this.mYear}, Двигун ${this.engine}`);
+//        // або всі значення КЛАСУ як this, на рівень вище цього методу
+//         console.log(this);
+//     }
+//     activeNewSpeed () {
+//         this.maxSpeed+=this.newSpeed
+//     }
+//     setNewValue () {
+//         this.mYear+=this.newValue;
+//     }
+//     addDriver(driver) {
+//         this.driver = driver
+//     }
+// }
+// let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 8);
+// let driver = {name: "Vova", experience: 200000, startDrive: 2007};
+// car.drive();
+// car.info();
+// car.activeNewSpeed();
+// console.log(car.maxSpeed);
+// car.setNewValue();
+// console.log(car.mYear);
+
+// - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску,
+// максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
+// -- drive () - яка виводить в консоль "їдемо зі швидкістю {максимальна швидкість} на годину"
+// -- info () - яка виводить всю інформацію про автомобіль
+// -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+// -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 
-class CarInfo {
-    constructor(model, producer, mYear, maxSpeed, newSpeed, engine) {
-        this.model = model;
-        this.producer = producer;
-        this.mYear = mYear;
-        this.maxSpeed = maxSpeed;
-        this.newSpeed = newSpeed;
-        this.engine = engine;
-    }
-    drive() {
-        console.log(`We're going with speed ${this.maxSpeed} km/h`);
-    }
-    info () {
-        console.log(`Модель ${this.model}, Виробник ${this.producer}, Рік виробництва ${this.mYear}, Двигун ${this.engine}`);
-    }
-    activeNewSpeed () {
-        this.maxSpeed+=this.newSpeed
+function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed, newValue, driver) {
+    this.model = model;
+    this.producer = producer;
+    this.manufYear = manufYear;
+    this.maxSpeed = maxSpeed;
+    this.engine = engine;
+    this.newSpeed = newSpeed;
+    // this.newValue = newValue;
+    // this.increaseMaxSpeed = null;
+    // this.changeYear = null;
+    this.drive = function () {
+        console.log(`Їдемо зі швидкістю ${this.maxSpeed}`)
+    };
+    this.info = function () {
+        console.log(this);
+    };
+    this.increaseMaxSpeed = function (newSpeed) {
+        this.maxSpeed+=newSpeed
+    };
+    this.changeYear = function (newValue) {
+        this.manufYear+=newValue;
+    };
+    this.addDriver = function() {
+        this.driver = driver
     }
 }
-let car = new CarInfo("Octavia", "Skoda", 2012, 240,60, 1.8);
-car.drive();
-car.info();
-car.activeNewSpeed()
+let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
+// car.info();
+car.increaseMaxSpeed();
 console.log(car.maxSpeed);
-
-
+car.increaseMaxSpeed(222);
