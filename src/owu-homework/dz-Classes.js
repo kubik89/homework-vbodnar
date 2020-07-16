@@ -138,13 +138,57 @@ let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
 // --Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
 
-class Cinderella {
-    constructor(name, age, footSize) {
-        this.name = name;
-        this.age = age;
-        this.footSize = footSize;
+// class Cinderella {
+//     constructor(name, age, footSize) {
+//         this.name = name;
+//         this.age = age;
+//         this.footSize = footSize;
+//     }
+// }
+// let cinderella1 = new Cinderella("Настя1", 20, 34);
+// let cinderella2 = new Cinderella("Настя2", 21, 35);
+// let cinderella3 = new Cinderella("Настя3", 22, 36);
+// let cinderella4 = new Cinderella("Настя4", 23, 37);
+// let cinderella5 = new Cinderella("Настя5", 24, 38);
+//
+// let  allCinderellas = [];
+// allCinderellas.push(cinderella1, cinderella2, cinderella3, cinderella4, cinderella5);
+
+// class Prince {
+//     constructor(name, age, shoesSize) {
+//         this.name = name;
+//         this.age = age;
+//         this.shoesSize = shoesSize;
+//     }
+// }
+// let prince = new Prince("Oskar", 25, 36);
+
+// for (let i = 0; i < allCinderellas.length; i++) {
+//     if (allCinderellas[i].footSize === prince.shoesSize) {
+//         console.log(`Моя принцеса ${allCinderellas[i].name}`)
+//     }
+// }
+
+//-створити функцію конструктор попелюшка з полями ім'я, вік, розмір ноги
+// --Створити 10 попелюшок , покласти їх в масив
+// --Сторити об'єкт типу "принц" за допомоги функції конструктора з полями ім'я, вік, туфелька яку він знайшов,
+// та функцію "пошук попелюшки"
+// -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
+
+function Cinderella(name1, age, footSize) {
+    this.name1 = name1;
+    this.age = age;
+    this.footSize = footSize;
     }
-}
+
+// function Prince (name, age, shoesSize) {
+//     this.name = name;
+//     this.age = age;
+//     this.shoesSize = shoesSize;
+//     this.myCind = function (arrCinds) {
+//     };
+// }
+
 let cinderella1 = new Cinderella("Настя1", 20, 34);
 let cinderella2 = new Cinderella("Настя2", 21, 35);
 let cinderella3 = new Cinderella("Настя3", 22, 36);
@@ -154,19 +198,17 @@ let cinderella5 = new Cinderella("Настя5", 24, 38);
 let  allCinderellas = [];
 allCinderellas.push(cinderella1, cinderella2, cinderella3, cinderella4, cinderella5);
 
-class Prince {
-    constructor(name, age, shoesSize) {
-        this.name = name;
-        this.age = age;
-        this.shoesSize = shoesSize;
+let prince = {
+    name: "Oskar", age: 25, shoesSize: 36,
+    myCind: function (allCinds) {
+        for (let i = 0; i < allCinds.length; i++) {
+            if (this.shoesSize === allCinds[i].footSize) {
+                console.log(`my princess is ${allCinds[i].name1}`)
+            }
+        }
     }
-}
-let prince = new Prince("Oskar", 25, 36);
+};
+prince.myCind(allCinderellas);
+prince.myCind();
+console.log(prince.myCind);
 
-for (let i = 0; i < allCinderellas.length; i++) {
-    if (allCinderellas[i].footSize === prince.shoesSize) {
-        console.log(`Моя принцеса ${allCinderellas[i].name}`)
-    }
-}
-
-//
