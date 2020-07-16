@@ -100,7 +100,7 @@ let tagH1 = new TagInfo("h1", "отображается самым крупны�
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 
-function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed, newValue, driver) {
+function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed) {
     this.model = model;
     this.producer = producer;
     this.manufYear = manufYear;
@@ -125,16 +125,48 @@ function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed, newVal
 }
 let driver = {name: "Vova", experience: 200000, startDrive: 2007};
 let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
-car.increaseMaxSpeed();
-console.log(car.maxSpeed);
-car.increaseMaxSpeed(222);
-car.changeYear(2014);
-car.info();
-car.addDriver(driver);
-console.log(car);
+// car.increaseMaxSpeed();
+// console.log(car.maxSpeed);
+// car.increaseMaxSpeed(222);
+// car.changeYear(2014);
+// car.info();
+// car.addDriver(driver);
+// console.log(car);
 
 // -створити класс попелюшка з полями ім'я, вік, розмір ноги
 // --Створити 10 попелюшок , покласти їх в масив
 // --Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 // -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
 
+class Cinderella {
+    constructor(name, age, footSize) {
+        this.name = name;
+        this.age = age;
+        this.footSize = footSize;
+    }
+}
+let cinderella1 = new Cinderella("Настя1", 20, 34);
+let cinderella2 = new Cinderella("Настя2", 21, 35);
+let cinderella3 = new Cinderella("Настя3", 22, 36);
+let cinderella4 = new Cinderella("Настя4", 23, 37);
+let cinderella5 = new Cinderella("Настя5", 24, 38);
+
+let  allCinderellas = [];
+allCinderellas.push(cinderella1, cinderella2, cinderella3, cinderella4, cinderella5);
+
+class Prince {
+    constructor(name, age, shoesSize) {
+        this.name = name;
+        this.age = age;
+        this.shoesSize = shoesSize;
+    }
+}
+let prince = new Prince("Oskar", 25, 36);
+
+for (let i = 0; i < allCinderellas.length; i++) {
+    if (allCinderellas[i].footSize === prince.shoesSize) {
+        console.log(`Моя принцеса ${allCinderellas[i].name}`)
+    }
+}
+
+//
