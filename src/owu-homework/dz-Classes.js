@@ -9,13 +9,13 @@
 // -опис дії атрибуту
 // інформацію брати з htmlbook.ru
 
-function Attributes(titleOfTag, action) {
-    this.titleOfTag = titleOfTag;
-    this.action = action;
-}
-let attrB = new Attributes("class", "Для встановлення класів. ");
-let attrH1 = new Attributes("id","Для використання ID");
-let attrBR = new Attributes("style", "для прописання стилів");
+// function Attributes(titleOfTag, action) {
+//     this.titleOfTag = titleOfTag;
+//     this.action = action;
+// }
+// let attrB = new Attributes("class", "Для встановлення класів. ");
+// let attrH1 = new Attributes("id","Для використання ID");
+// let attrBR = new Attributes("style", "для прописання стилів");
 //
 // let tagA = {
 //     titleOfTag: "a",
@@ -35,16 +35,16 @@ let attrBR = new Attributes("style", "для прописання стилів")
 //     attrs: attrB, attrBR
 // };
 
-class TagInfo {
-    constructor(titleOfTag, action, attrs) {
-        this.titleOfTag = titleOfTag;
-        this.action = action;
-        this.attrs = attrs;
-    }
-}
-let tagA = new TagInfo("a", "предназначен для создания ссылок", attrH1);
-let tagDiv = new TagInfo("div", "предназначен для выделения фрагмента документа", attrBR);
-let tagH1 = new TagInfo("h1", "отображается самым крупным шрифтом жирного начертания", attrB);
+// class TagInfo {
+//     constructor(titleOfTag, action, attrs) {
+//         this.titleOfTag = titleOfTag;
+//         this.action = action;
+//         this.attrs = attrs;
+//     }
+// }
+// let tagA = new TagInfo("a", "предназначен для создания ссылок", attrH1);
+// let tagDiv = new TagInfo("div", "предназначен для выделения фрагмента документа", attrBR);
+// let tagH1 = new TagInfo("h1", "отображается самым крупным шрифтом жирного начертания", attrB);
 
 
 // - Створити об'єкт car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
@@ -100,31 +100,31 @@ let tagH1 = new TagInfo("h1", "отображается самым крупны�
 // -- changeYear (newValue) - змінює рік випуску на значення newValue
 // -- addDriver (driver) - приймає об'єкт який "водій" з довільним набором полів, і доавляет його в поточний об'єкт car
 
-function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed) {
-    this.model = model;
-    this.producer = producer;
-    this.manufYear = manufYear;
-    this.maxSpeed = maxSpeed;
-    this.engine = engine;
-    this.newSpeed = newSpeed;
-    this.drive = function () {
-        console.log(`Їдемо зі швидкістю ${this.maxSpeed}`)
-    };
-    this.info = function () {
-        console.log(this);
-    };
-    this.increaseMaxSpeed = function (newSpeed) {
-        this.maxSpeed+=newSpeed
-    };
-    this.changeYear = function (newValue) {
-        this.manufYear=newValue;
-    };
-    this.addDriver = function(driver) {
-        Object.assign(this, driver); // обєдную два обєкти (this(Car) та driver)  в один this
-    }
-}
-let driver = {name: "Vova", experience: 200000, startDrive: 2007};
-let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
+// function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed) {
+//     this.model = model;
+//     this.producer = producer;
+//     this.manufYear = manufYear;
+//     this.maxSpeed = maxSpeed;
+//     this.engine = engine;
+//     this.newSpeed = newSpeed;
+//     this.drive = function () {
+//         console.log(`Їдемо зі швидкістю ${this.maxSpeed}`)
+//     };
+//     this.info = function () {
+//         console.log(this);
+//     };
+//     this.increaseMaxSpeed = function (newSpeed) {
+//         this.maxSpeed+=newSpeed
+//     };
+//     this.changeYear = function (newValue) {
+//         this.manufYear=newValue;
+//     };
+//     this.addDriver = function(driver) {
+//         Object.assign(this, driver); // обєдную два обєкти (this(Car) та driver)  в один this
+//     }
+// }
+// let driver = {name: "Vova", experience: 200000, startDrive: 2007};
+// let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
 // car.increaseMaxSpeed();
 // console.log(car.maxSpeed);
 // car.increaseMaxSpeed(222);
@@ -175,40 +175,46 @@ let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
 // та функцію "пошук попелюшки"
 // -- функція повинна приймати масив попелюшок, та шукає ту котра йому підходить
 
-function Cinderella(name1, age, footSize) {
-    this.name1 = name1;
-    this.age = age;
-    this.footSize = footSize;
-    }
-
-// function Prince (name, age, shoesSize) {
+// function Cinderella(name1, age, footSize) {
+//     this.name1 = name1;
+//     this.age = age;
+//     this.footSize = footSize;
+//     }
+//
+// function Prince(name, age, shoesSize) {
 //     this.name = name;
 //     this.age = age;
 //     this.shoesSize = shoesSize;
-//     this.myCind = function (arrCinds) {
-//     };
+//     this.myCind = function (allCinds) {
+//         for (let i = 0; i < allCinds.length; i++) {
+//             if (this.shoesSize === allCinds[i].footSize) {
+//                 console.log(`my princess is ${allCinds[i].name1}`)
+//             }
+//         }
+//     }
 // }
+// let prince1 = new Prince("Pavlo", 20, 35);
+//
+// let cinderella1 = new Cinderella("Настя1", 20, 34);
+// let cinderella2 = new Cinderella("Настя2", 21, 35);
+// let cinderella3 = new Cinderella("Настя3", 22, 36);
+// let cinderella4 = new Cinderella("Настя4", 23, 37);
+// let cinderella5 = new Cinderella("Настя5", 24, 38);
+//
+// let  allCinderellas = [];
+// allCinderellas.push(cinderella1, cinderella2, cinderella3, cinderella4, cinderella5);
+// prince1.myCind(allCinderellas);
 
-let cinderella1 = new Cinderella("Настя1", 20, 34);
-let cinderella2 = new Cinderella("Настя2", 21, 35);
-let cinderella3 = new Cinderella("Настя3", 22, 36);
-let cinderella4 = new Cinderella("Настя4", 23, 37);
-let cinderella5 = new Cinderella("Настя5", 24, 38);
-
-let  allCinderellas = [];
-allCinderellas.push(cinderella1, cinderella2, cinderella3, cinderella4, cinderella5);
-
-let prince = {
-    name: "Oskar", age: 25, shoesSize: 36,
-    myCind: function (allCinds) {
-        for (let i = 0; i < allCinds.length; i++) {
-            if (this.shoesSize === allCinds[i].footSize) {
-                console.log(`my princess is ${allCinds[i].name1}`)
-            }
-        }
-    }
-};
-prince.myCind(allCinderellas);
-prince.myCind();
-console.log(prince.myCind);
-
+// let prince = {
+//     name: "Oskar", age: 25, shoesSize: 36,
+//     myCind: function (allCinds) {
+//         for (let i = 0; i < allCinds.length; i++) {
+//             if (this.shoesSize === allCinds[i].footSize) {
+//                 console.log(`my princess is ${allCinds[i].name1}`)
+//             }
+//         }
+//     }
+// };
+// prince.myCind(allCinderellas);
+// prince.myCind();
+// console.log(prince.myCind);
