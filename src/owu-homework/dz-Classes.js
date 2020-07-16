@@ -107,9 +107,6 @@ function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed, newVal
     this.maxSpeed = maxSpeed;
     this.engine = engine;
     this.newSpeed = newSpeed;
-    // this.newValue = newValue;
-    // this.increaseMaxSpeed = null;
-    // this.changeYear = null;
     this.drive = function () {
         console.log(`Їдемо зі швидкістю ${this.maxSpeed}`)
     };
@@ -120,14 +117,24 @@ function Car(model,producer, name, manufYear, maxSpeed, engine, newSpeed, newVal
         this.maxSpeed+=newSpeed
     };
     this.changeYear = function (newValue) {
-        this.manufYear+=newValue;
+        this.manufYear=newValue;
     };
-    this.addDriver = function() {
-        this.driver = driver
+    this.addDriver = function(driver) {
+        Object.assign(this, driver); // обєдную два обєкти (this(Car) та driver)  в один this
     }
 }
+let driver = {name: "Vova", experience: 200000, startDrive: 2007};
 let car = new Car("Octavia", "Skoda", 2012, 240,60, 1.8, 65);
-// car.info();
 car.increaseMaxSpeed();
 console.log(car.maxSpeed);
 car.increaseMaxSpeed(222);
+car.changeYear(2014);
+car.info();
+car.addDriver(driver);
+console.log(car);
+
+// -створити класс попелюшка з полями ім'я, вік, розмір ноги
+// --Створити 10 попелюшок , покласти їх в масив
+// --Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
+// -- за допоиоги циклу знайти яка попелюшка повинна бути з принцом
+
