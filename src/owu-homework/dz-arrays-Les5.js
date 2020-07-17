@@ -62,4 +62,65 @@ let numb = [1,99,-800,74,550,-17,65, 98,54,5,12,-122,63,-996,74,7,10,100,-111,33
 // });
 // console.log(filtered);
 
-//
+// перебрать (проитерировать) массив при помощи foreach()
+// numb.forEach((value) => {
+//     console.log(value)
+//   });
+
+// перебрать массив при помощи map() и получить новый массив в котором все значения будут в 3 раза больше
+// let mapX3 = numb.map(x => x * 3);
+// console.log(mapX3);
+
+// - создать массив со словами на 15-20 элементов.
+let str = ["Vova", "Vasya", "Vasylyna", "Ira", "Andrew", "Macdonalds", "Restoran", "Apple", "Juice", "Coca", "Microsoft"];
+
+// -- отсортировать его по алфавиту в восходящем порядке.
+// str.sort((a, b) => {
+//     if (a < b) {
+//         return -1
+//     } return 1
+// });
+// console.log(str);
+
+// -- отсортировать его по алфавиту  в нисходящем порядке.
+// str.sort((a, b) => {
+//     if (a < b) {
+//         return 1
+//     } return -1
+// });
+// console.log(str);
+
+// отфильтровать слова длиной менее 4х символов
+// str.filter(value => {
+//     for (let i = 0; i < str.length; i++) {
+//         const strElement = str[i];
+//         if (strElement.length < 4) {
+//             console.log(strElement);
+//         }
+// }
+// отфильтровать слова длиной менее 4х символов
+// let filt1 = str.filter((value) => {
+//    return value.length < 4;
+// });
+// console.log(filt1);
+
+// перебрать массив при помощи map() и получить новый массив в котором все значения будут со знаком "!" в конце
+// let newStr = str.map(value => value+"!");
+//     console.log(newStr);
+
+// Все робити через функції масивів (foreach, map ...тд)
+// Дано масив :
+// - відсортувати його за  віком (зростання , а потім окремо спадання)
+let users = [
+    {name: 'vasya', age: 31, status: false},
+    {name: 'petya', age: 30, status: true},
+    {name: 'kolya', age: 29, status: true},
+    {name: 'olya', age: 28, status: false},
+    {name: 'max', age: 30, status: true},
+    {name: 'anya', age: 31, status: false},
+    {name: 'oleg', age: 28, status: false},
+    {name: 'andrey', age: 29, status: true},
+    {name: 'masha', age: 30, status: true},
+    {name: 'olya', age: 31, status: false},
+    {name: 'max', age: 31, status: true}
+    ];
