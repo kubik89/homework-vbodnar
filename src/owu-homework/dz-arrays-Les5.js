@@ -110,7 +110,7 @@ let str = ["Vova", "Vasya", "Vasylyna", "Ira", "Andrew", "Macdonalds", "Restoran
 
 // Все робити через функції масивів (foreach, map ...тд)
 // Дано масив :
-// - відсортувати його за  віком (зростання , а потім окремо спадання)
+
 let users = [
     {name: 'vasya', age: 31, status: false},
     {name: 'petya', age: 30, status: true},
@@ -124,3 +124,37 @@ let users = [
     {name: 'olya', age: 31, status: false},
     {name: 'max', age: 31, status: true}
     ];
+
+// - відсортувати його за  віком (зростання , а потім окремо спадання)
+// users.sort((a, b) => {
+//    if (a.age < b.age) {
+//        return -1;
+//    } return 1;
+// });
+// console.log(users);
+
+//
+// users.sort((a, b) => {
+//     if (a.age < b.age) {
+//         return 1;
+//     } return -1;
+// });
+// console.log(users);
+
+// відсортувати його за кількістю знаків в імені  (зростання , а потім окремо спадання)
+// users.sort((a, b) => {
+//     if (a.name.length < b.name.length) {
+//         return -1;
+//     } return 1;
+// });
+// console.log(users);
+
+// пройтись по ньому та додати кожному юзеру поле id - яке характеризує унікальний індентифікатор
+// (По якому принципу його створювати - ваше рішення), та зберегти це в новий масив (первинний масив залишиться без змін)
+
+let userWithID = users.map((value, index) => {
+    return {
+        name: value, id: index*115, newID: index*5 + "s" + 5 + "df" + Math.random()
+    }
+});
+console.log(userWithID);
