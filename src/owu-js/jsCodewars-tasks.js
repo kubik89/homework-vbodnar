@@ -82,3 +82,18 @@
 // }
 // let summ = findMultiples(11, 54);
 // console.log(summ);
+
+
+// Implement method that takes array of ints and returns the
+// * smallest element of the array.
+// function smallestArg(ints){
+//     ints.sort((a, b) => {
+//         if (a < b) {
+//             return -1
+//         } return 1
+//     });
+//     return ints[0];
+// }
+// let str = smallestArg([0]);
+// console.log(str);
+
