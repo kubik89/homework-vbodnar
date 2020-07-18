@@ -97,3 +97,27 @@
 // let str = smallestArg([0]);
 // console.log(str);
 
+// Return true if none the letters in the `blacklist`
+// * are present in the `phrase`. If at least one letter from
+// * `blacklist` is present in the `phrase` return false;
+
+function findSomeLetter(word1, word2) {
+    let arr1 = [];
+    let arr2 = [];
+    for (let i = 0; i < word1.length; i++) {
+        arr1.push(word1[i]);
+    }
+    for (let i = 0; i < word2.length; i++) {
+        arr2.push(word2[i]);
+    }
+    for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+            if (arr1[i] === arr2[j]) {
+                console.log("Знайшов " + arr1[i])
+            } else {
+                console.log("Порівняв " + arr1[i] + " та " + arr2[j] + " - не рівні")
+            }
+        }
+    }
+}
+findSomeLetter("blacklist", "pharase");
