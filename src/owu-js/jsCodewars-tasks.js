@@ -40,3 +40,45 @@
 // +0 for each blank answer, represented as an empty string
 // If the score < 0, return 0.
 
+// function getScore(corrAnsw, studAnsw) {
+//     let summScore = [];
+//     for (let i = 0; i < corrAnsw.length; i++) {
+//         if (studAnsw[i] === "") {
+//             summScore.push(0);
+//         } else if (corrAnsw[i] === studAnsw[i]) {
+//             summScore.push(4);
+//         } else if (corrAnsw[i] !== studAnsw[i]) {
+//             summScore.push(-1);
+//         }
+//     }
+//     let counter = 0;
+//     for (let i = 0; i < summScore.length; i++) {
+//         counter+= summScore[i];
+//         counter[i]++;
+//     }
+//     if (counter < 0) {
+//         return 0
+//     } return counter;
+// }
+// let score = getScore(["b", "c", "b", "a"], ["",  "a", "a", "c"]);
+// console.log(score);
+
+
+// In this simple exercise, you will build a program that takes a value, integer, and returns a list of its multiples
+// up to another value, limit. If limit is a multiple of integer, it should be included as well. There will only
+// ever be positive integers passed into the function, not consisting of 0. The limit will always be higher than the base.
+//     For example, if the parameters passed are (2, 6), the function should return [2, 4, 6] as 2, 4, and 6 are the
+//     multiples of 2 up to 6.
+
+// function findMultiples(integer, limit) {
+//     let a = Math.floor(limit / integer);
+//     let newInt = [];
+//     let someInt = 0;
+//     for (let i = 1; i <= a; i++) {
+//         someInt+=integer;
+//         newInt.push(someInt);
+//     }
+//     return newInt;
+// }
+// let summ = findMultiples(11, 54);
+// console.log(summ);
