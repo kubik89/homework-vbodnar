@@ -157,4 +157,40 @@ let userWithID = users.map((value, index) => {
         name: value, id: index*115, newID: index*5 + "s" + 5 + "df" + Math.random()
     }
 });
-console.log(userWithID);
+
+// відсортувати його за індентифікатором
+// userWithID.sort((a, b) => {
+//     if (a.id < b.id) {
+//         return -1;
+//     } return 1
+// });
+// or
+// let userWithID1 = userWithID.sort(((a, b) => a.id - b.id));
+
+// наисать функцию калькулятора с 2мя числами и колбеком
+
+// function calc(a, b, myCallback) {
+//  let results = a + b;
+//     myCallback(results);
+// }
+// calc(10,11, function(rslt) {
+//     console.log(rslt)
+// });
+
+function calculator(a, b, callback){
+    const results={
+        addition: a + b,
+        substraction: a - b,
+        multiplication: a * b,
+        division: a / b
+    };
+
+    //Make the third param, callback functin optional
+    if (callback && typeof(callback) === "function") {
+        callback(results); //call the function that was passed in
+    }
+}
+calculator(10, 2);
+calculator(10, 2, function(rslt) {
+    console.log(rslt);
+})
