@@ -124,12 +124,47 @@
 
 // Count chars of strings placed in the odd positions in the given array.
 // * For example
-function foundInOdd(arrStr) {
-    let lng = 0;
-    for (let i = 0; i < arrStr.length; i+=2) {
-            lng+= arrStr[i].length;
+// function foundInOdd(arrStr) {
+//     let lng = 0;
+//     for (let i = 0; i < arrStr.length; i+=2) {
+//             lng+= arrStr[i].length;
+//     }
+//     return lng;
+// }
+// let inOdd = foundInOdd(["Hello", "world", "from", "array,", "Macdonalds"]);
+// console.log(inOdd);
+
+// Count chars of strings placed in the odd positions in the given array.
+// * For example
+// function foundInOdd(arrStr) {
+//     let lng = 0;
+//     for (let i = 1; i < arrStr.length; i+=2) {
+//         lng+= arrStr[i].length;
+//     }
+//     return lng;
+// }
+// let inOdd = foundInOdd(["Hello", "world", "from", "array,", "Macdonalds"]);
+// console.log(inOdd);
+
+// визначаємо першу не послідовну цифру в масиві (якщо послідовність +1)
+// function notConcecutiveValue(arrFull) {
+//     for (let i = 0; i < arrFull.length; i++) {
+//         if (arrFull[i] + 1 !== arrFull[i+1]) {
+//         return arrFull[i + 1]
+//         }
+//     }
+// }
+// let notConcV = notConcecutiveValue([1, 2, 8, 3, 5]);
+// console.log(notConcV);
+
+// визначаємо першу не послідовну цифру в масиві (послідовність визначити)
+function notConcecutiveValue(arrFull) {
+    let poslidovn = arrFull[1] - arrFull[0];
+    for (let i = 0; i < arrFull.length; i++) {
+        if (arrFull[i] + poslidovn !== arrFull[i+1]) {
+            return arrFull[i + 1]
+        }
     }
-    return lng;
 }
-let inOdd = foundInOdd(["Hello", "world", "from", "array,", "Macdonalds"]);
-console.log(inOdd);
+let notConcV = notConcecutiveValue([1, 6, 11, 12, 18]);
+console.log(notConcV);
