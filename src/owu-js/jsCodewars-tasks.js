@@ -158,13 +158,128 @@
 // console.log(notConcV);
 
 // визначаємо першу не послідовну цифру в масиві (послідовність визначити)
-function notConcecutiveValue(arrFull) {
-    let poslidovn = arrFull[1] - arrFull[0];
-    for (let i = 0; i < arrFull.length; i++) {
-        if (arrFull[i] + poslidovn !== arrFull[i+1]) {
-            return arrFull[i + 1]
-        }
+// function notConcecutiveValue(arrFull) {
+//     let poslidovn = arrFull[1] - arrFull[0];
+//     for (let i = 0; i < arrFull.length; i++) {
+//         if (arrFull[i] + poslidovn !== arrFull[i+1]) {
+//             return arrFull[i + 1]
+//         }
+//     }
+// }
+// let notConcV = notConcecutiveValue([1, 6, 11, 12, 18]);
+// console.log(notConcV);
+
+//знайти найдовше значення масиву str і вивести кількість значень в int
+// function longerValueinArr(someString) {
+//     let splittedArr = someString.split(" ");
+//     splittedArr.sort((a, b) => {
+//         if (a.length < b.length) {
+//             return 1;
+//         } return -1
+//     });
+//     return splittedArr[0].length;
+// }
+// let longerValueinArr1 = longerValueinArr("Take me to tinseltown with you");
+// console.log(longerValueinArr1);
+
+/*
+function someFromVB(a, b, callback) {
+let c = a + b;
+    callback(c);
+}
+someFromVB(2, 5, function (rlst1) {
+    console.log(rlst1)
+});
+*/
+
+let users = [
+    {name: 'vasya', age: 31, status: false},
+    {name: 'petya', age: 30, status: true},
+    {name: 'kolya', age: 29, status: true},
+    {name: 'olya', age: 28, status: false},
+    {name: 'max', age: 30, status: true},
+    {name: 'anya', age: 31, status: false},
+    {name: 'oleg', age: 28, status: false},
+    {name: 'andrey', age: 29, status: true},
+    {name: 'masha', age: 30, status: true},
+    {name: 'olya', age: 31, status: false},
+    {name: 'max', age: 31, status: true}
+];
+
+// let userWithID = users.map((value, index) => {
+//     return {
+//         name1: value.name,
+//         age1: "Мені " + value.age,
+//         newIndex: index,
+//         toWeeding: (value.status===true && value.age>30),
+//           id: index*115, newID: index*5 + "s" + 5 + "df" + Math.random()
+//     }
+// });
+// console.log(userWithID);
+
+// let array1 = [
+//     {name: "Messi", club: "Barcelona", goals: 15},
+//     {name: "Konoplianka", club: "Shakhtar", goals: 12},
+//     {name: "Rebrov", club: "Dynamo", goals: 7}
+// ];
+
+// let arr2 = [12, 15, 7];
+// let filtArr2 = arr2.filter((value) => {
+//     return value>10;
+// });
+// console.log(filtArr2);
+// let map1 = array1.map((value, index) => {
+//     if (value.name.length > 7) {
+//         let name = value.name;
+//         return  name;
+//     }
+// });
+
+// console.log(map1);
+
+// function addition(a,b) {
+//     if (a > b) {
+//      return a + b;
+//     }
+//     return "dfsdf";
+// }
+// let x = addition(15, 72);
+// console.log(x);
+
+
+// Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number
+// const quarterOf = (month) => {
+//     if (month <= 3) {
+//         return 1
+//     } else if (month > 3 && month <= 6) {
+//         return 2
+//     } else if (month > 6 && month <= 9) {
+//         return 3
+//     } else if (month > 9 && month <= 12) {
+//         return 4
+//     }
+// }
+// let a = quarterOf(10);
+// console.log(a);
+
+// For example, if a bottle cost £10 normally and the discount in duty free was 10%, you would save £1 per bottle.
+// If your holiday cost £500, the answer you should return would be 500.
+
+// function dutyFree(normPrice, discount, hol){
+//     let endSumm = hol/(normPrice*discount/100);
+//     return Math.floor(endSumm);
+// }
+// let answ =  dutyFree(12, 50, 1000);
+// console.log(answ);
+
+
+// Therefore you need a method, which returns the smallest unused ID for your next new data item...
+// Note: The given array of used IDs may be unsorted. For test reasons there may be duplicate IDs, but you don't have
+// to find or remove them!
+function nextId(ids){
+    for (let i = 0; i < ids.length; i++) {
+        console.log(ids[i]);
     }
 }
-let notConcV = notConcecutiveValue([1, 6, 11, 12, 18]);
-console.log(notConcV);
+let needID = nextId([0,1,2,3,5]);
+// console.log(needID);
