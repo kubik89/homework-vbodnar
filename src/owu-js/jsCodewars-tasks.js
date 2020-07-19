@@ -276,10 +276,22 @@ let users = [
 // Therefore you need a method, which returns the smallest unused ID for your next new data item...
 // Note: The given array of used IDs may be unsorted. For test reasons there may be duplicate IDs, but you don't have
 // to find or remove them!
-function nextId(ids){
-    for (let i = 0; i < ids.length; i++) {
-        console.log(ids[i]);
-    }
+function nextId(ids) {
+
+    let sortedIDS = ids.sort((a, b) => {
+        if (a < b) {
+            return -1;
+        }
+        return 1;
+    });
+    for (let i = 0; i < sortedIDS.length; i++) {
+        if (sortedIDS[i + 1] - sortedIDS[i] > 1) {
+                return sortedIDS[i+1]-1;
+        }
+    } let l = sortedIDS.length;
+    return sortedIDS[l-1]+1;
 }
+
+
 let needID = nextId([0,1,2,3,5]);
-// console.log(needID);
+console.log(needID);
