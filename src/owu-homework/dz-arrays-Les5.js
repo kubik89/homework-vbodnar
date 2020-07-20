@@ -292,12 +292,102 @@ let usersWithAddress = [
 {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
 {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}},
 {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-{id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}},
+{id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Ahevchenko', number: 90}},
 {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-{id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
+{id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Mhevchenko', number: 2}},
 {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 22}},
 {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
 {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}},
 {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
 {id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}
 ];
+
+// -- отсортировать его по id пользователей
+// usersWithAddress.sort((a, b) => {
+//     if (a.id < b.id) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отсортировать его по id пользователей в обратном опрядке
+// usersWithAddress.sort((a, b) => {
+//     if (a.id > b.id) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отсортировать его по возрасту пользователей
+// usersWithAddress.sort((a, b) => {
+//     if (a.age < b.age) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отсортировать его по возрасту пользователей в обратном порядке
+// usersWithAddress.sort((a, b) => {
+//     if (a.age > b.age) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// отсортировать его по имени пользователей
+// usersWithAddress.sort((a, b) => {
+//             if (a.name < b.name) {
+//                 return -1;
+//             } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отсортировать его по имени пользователей в обратном порядке
+// usersWithAddress.sort((a, b) => {
+//     if (a.name > b.name) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отсортировать его по названию улицы  в алфавитном порядке
+// usersWithAddress.sort((a, b) => {
+//     if (a.address.street < b.address.street) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отсортировать его по номеру дома по возрастанию
+// usersWithAddress.sort((a, b) => {
+//     if (a.address.number < b.address.number) {
+//         return -1;
+//     } return 1
+// });
+// console.log(usersWithAddress);
+
+// -- отфильтровать (оставить) тех кто младше 30
+// let userL30 = usersWithAddress.filter((value, index) => {
+//     return value.age < 30;
+// });
+// console.log(userL30);
+
+// -- отфильтровать (оставить) тех у кого отрицательный статус
+// let userL30 = usersWithAddress.filter((value, index) => {
+//     return value.status === false;
+// });
+// console.log(userL30);
+
+// -- отфильтровать (оставить) тех у кого отрицательный статус и младше 30 лет
+// let userL30 = usersWithAddress.filter((value, index) => {
+//     return (value.status === false) && (value.age < 30);
+// });
+// console.log(userL30);
+
+// -- отфильтровать (оставить) тех у кого номер дома четный
+// let userL30 = usersWithAddress.filter((value, index) => {
+//     return value.address.number % 2 === 0;
+// });
+// console.log(userL30);
+
+//
