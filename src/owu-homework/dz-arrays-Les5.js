@@ -177,20 +177,127 @@ let userWithID = users.map((value, index) => {
 //     console.log(rslt)
 // });
 
-function calculator(a, b, callback){
-    const results={
-        addition: a + b,
-        substraction: a - b,
-        multiplication: a * b,
-        division: a / b
-    };
+// function calculator(a, b, callback){
+//     const results={
+//         addition: a + b,
+//         substraction: a - b,
+//         multiplication: a * b,
+//         division: a / b
+//     };
+//
+//     //Make the third param, callback functin optional
+//     if (callback && typeof(callback) === "function") {
+//         callback(results); //call the function that was passed in
+//     }
+// }
+// calculator(10, 2);
+// calculator(10, 2, function(rslt) {
+//     console.log(rslt);
+// });
 
-    //Make the third param, callback functin optional
-    if (callback && typeof(callback) === "function") {
-        callback(results); //call the function that was passed in
-    }
-}
-calculator(10, 2);
-calculator(10, 2, function(rslt) {
-    console.log(rslt);
-})
+// ?? -- наисать функцию калькулятора с 3мя числами и колбеком
+
+let cars = [
+{producer:"subaru",model: "wrx",year: 2010, color:"blue",type: "sedan",engine: "ej204x",volume: 2,power: 400},
+{producer:"subaru",model: "legacy",year: 2007, color:"silver",type: "sedan",engine: "ez30",volume: 3,power: 250},
+{producer:"subaru",model: "tribeca",year: 2011, color:"white",type: "jeep",engine: "ej20",volume: 2,power: 300},
+{producer:"subaru",model: "leone",year: 1998, color:"yellow",type: "sedan",engine: "ez20x",volume: 2,power: 140},
+{producer:"subaru",model: "impreza",year: 2014, color:"red",type: "sedan",engine: "ej204x",volume: 2,power: 200},
+{producer:"subaru",model: "outback",year: 2014, color:"red",type: "hachback",engine: "ej204",volume: 2,power: 165},
+{producer:"bmw",model: "115",year: 2013, color:"red",type: "hachback",engine: "f15",volume: 1.5,power: 120},
+{producer:"bmw",model: "315",year: 2010, color:"white",type: "sedan",engine: "f15",volume: 1.5, power: 120},
+{producer:"bmw",model: "650",year: 2009, color:"black",type: "coupe",engine: "f60",volume: 6,power: 350},
+{producer:"bmw",model: "320",year: 2012, color:"red",type: "sedan",engine: "f20",volume: 2,power: 180},
+{producer:"mercedes",model: "e200",year: 1990, color:"silver",type: "sedan",engine: "eng200",volume: 2,power: 180},
+{producer:"mercedes",model: "e63",year: 2017, color:"yellow",type: "sedan",engine: "amg63",volume:3,power: 400},
+{producer:"mercedes",model: "c250",year: 2017, color:"red",type: "sedan",engine: "eng25",volume: 2.5,power: 230}
+];
+
+// Відфільтрувати масив за наступними крітеріями :
+
+// - двигун більше 3х літрів
+// let volume = cars.filter((value, index) => {
+//     return value.volume > 3;
+// });
+// console.log(volume);
+
+// - двигун = 2л
+// let volume = cars.filter((value, index) => {
+//     return value.volume = 2;
+// });
+// console.log(volume);
+
+// - виробник мерс
+// let producerFilt = cars.filter((value, index) => {
+//     return value.producer === "mercedes";
+// });
+// console.log(producerFilt);
+
+// - двигун більше 3х літрів + виробник мерседес
+// let producerAndVolume = cars.filter((value, index) => {
+//     return (value.producer === "mercedes") && (value.volume > 3)
+// });
+// console.log(producerAndVolume);
+
+// - двигун більше 2х літрів + виробник субару
+// let producerAndVolume = cars.filter((value, index) => {
+//     return (value.producer === "subaru") && (value.volume > 2)
+// });
+// console.log(producerAndVolume);
+
+// сили більше ніж 300
+// let power= cars.filter((value, index) => {
+//     return (value.power > 300)
+// });
+// console.log(power);
+
+// сили більше ніж 300 + виробник субару
+// let powerAndProducer= cars.filter((value, index) => {
+//     return (value.power > 300 ) && (value.producer = "subaru")
+// });
+// console.log(powerAndProducer);
+
+// мотор серіі ej
+
+// let keys = Object.keys(cars);
+// for (let i = 0; i < cars.length; i++) {
+//     // if (cars[i].engine === "ej204x") {
+//     // console.log(cars[i].)
+//     let filterEngine = (arr, query) => {
+//         return arr.filter(el => el.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+//     };
+//     console.log(filterEngine(cars[i].engine, 'ej'))
+// }
+
+// - двигун меньше 3х літрів + виробник мерседес
+// let powerAndProducer= cars.filter((value, index) => {
+//     return (value.volume < 3 ) && (value.producer = "mercedes")
+// });
+// console.log(powerAndProducer);
+
+// двигун більше 2л + сили більше 250
+// let powerAndProducer= cars.filter((value, index) => {
+//     return (value.volume > 2 ) && (value.power > 250)
+// });
+// console.log(powerAndProducer);
+
+// - сили більше 250  + виробник бмв
+// let powerAndProducer= cars.filter((value, index) => {
+//     return (value.producer === "bmw" ) && (value.power > 250)
+// });
+// console.log(powerAndProducer);
+
+// - взять слдующий массив
+let usersWithAddress = [
+{id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+{id: 2, name: 'petya', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 1}},
+{id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+{id: 4, name: 'olya', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 90}},
+{id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+{id: 6, name: 'anya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 2}},
+{id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 22}},
+{id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+{id: 9, name: 'masha', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 12}},
+{id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+{id: 11, name: 'max', age: 31, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}}
+];
