@@ -390,4 +390,58 @@ let usersWithAddress = [
 // });
 // console.log(userL30);
 
+// Створити обєкт автомобіля з полями:
+// Марка автомобля, потужність двигуна, власник, ціна, рік випуску.
+// Власник автомобіля теж має бути обєкт, у якого є поля
+// Імя, вік, стаж водіння.
+// Створити не менше 7 та не більше 20 машинок.
+// Зробили половину автопарку ремонт мотору, що збільшить потужність автомобілів на 10%
+// (переприсвоєння змінної потужності).
+// На відремонтовані автомобілі найняти нових водіїв (переприсвоїти змінну водій).
+// + Для початку вкладіть всі наші створені автомобілі в масив cars.
+// Обрати кожну другу машинку (цикл з кроком в 2), та робити їй підвищення потужності двигуна на 10% та ціну на 5%
+// Після того зробити перевірку досвіду ВСІХ наших водіїв. Якщо досвід водія менший за 5 років, але його вік більший
+// за 25, то необідно відправити його на курси підвищення кваліфікації, що збільшить йому досвід на 1 рік.
+// Також спробуйте порахувати суму, яку потрібно потратити для покупки всіх цих авто в циклі
+
+let myCar1 = [
+        {model: "Chevrolet", power: 2, owner: "Petrov", price: 8000, year: 2012},
+        {model: "Chevy", power: 1.5, owner: "Chaplyak", price: 11000, year: 2010},
+        {model: "Skoda", power: 8, owner: "Bodnar", price: 11000, year: 2015},
+        {model: "Mercedes", power: 3, owner: "Buhara", price: 13000, year: 2015},
+        {model: "Mclaren", power: 5, owner: "Ivasyk", price: 14000, year: 2018},
+        {model: "VAZ", power: 1.2, owner: "Wiznyi", price: 2000, year: 2007},
+        {model: "VW", power: 1.6, owner: "Traud", price: 4000, year: 2005}
+];
+
+// let xxx = myCar1.reduce((acc, value) =>{
+//     return acc + value.power ;
+// }, 0);
 //
+// console.log(xxx);
+
+let owner = {name: "Renault", age: 24, experience: 4, cursesQualif: 0};
+    for (let i = 0; i < myCar1.length; i+=2) {
+    myCar1[i].power *= 1.1;
+    myCar1[i].price *= 1.05;
+    // console.log(myCar1[i].power, myCar1[i].price);
+}
+    if (owner.experience < 5 && owner.age > 25) {
+        owner.cursesQualif+= 1;
+    }
+
+    let carPrice = [];
+for (let i = 0; i < myCar1.length; i++) {
+    carPrice.push(myCar1[i].price);
+}
+// let sumNewPrice = (previousValue, currentValue) => previousValue + currentValue;
+// console.log(carPrice.reduce(sumNewPrice));
+
+//     let sum = 0;
+// for (let i = 0; i < myCar1.length; i++) {
+//     sum+=myCar1[i].price
+// }
+// console.log(sum);
+// console.log(myCar1);
+// console.log(owner);
+
