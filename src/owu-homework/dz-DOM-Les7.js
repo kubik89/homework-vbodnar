@@ -26,3 +26,31 @@
 // };
 
 // Создайте меню, которое раскрывается/сворачивается при клике
+// let menuDiv = document.querySelector(".menu");
+//
+// menuDiv.onclick = () => {
+//     let drop = document.querySelector('.drop-menu');
+//     drop.classList.toggle('menu-block'); // toggle - як перемикач - включає та виключає
+// };
+
+// - Создать список комментариев , пример объекта коментария -
+// Вывести список комментариев в документ, каждый в своем блоке.
+// {
+// title : 'lorem',
+// body:'lorem ipsum dolo sit ameti'
+// }.
+let comments = [{
+    title : 'lorem1',
+    body:'lorem ipsum dolo sit ameti 1'
+}, {
+    title : 'lorem2',
+    body:'lorem ipsum dolo sit ameti 2'
+}];
+for (let i = 0; i < comments.length; i++) {
+let div = document.createElement("div");
+    div.innerHTML += `<h1>${comments[i].title}</h1> <p>${comments[i].body}</p>`;
+document.body.appendChild(div);
+
+//     console.log(divElement);
+
+}
