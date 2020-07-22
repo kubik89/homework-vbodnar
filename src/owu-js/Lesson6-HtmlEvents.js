@@ -97,19 +97,62 @@
 //     console.log(greenDiv);
 // }, false);
 
-let myForm = document.forms.MyForm;
+// let myForm = document.forms.MyForm;
+//
+// myForm.okBtn.onclick = (ev) => {
+// ev.preventDefault(); // preventDefault метод зупиняє всі події із коробки, без нього при кліку сторінка перезавантажувалась
+// let text1 = myForm.someText.value;
+//
+// let objToSend = {
+//     text1
+// };
+// console.log(objToSend);
+// myForm.someText.value = ""; // після кліку, тобто після події - онулити
+//     myForm.check1[0].checked = false; // після кліку, тобто після події - онулити
+//     myForm.check1[1].checked = false;
+//     myForm.rad[0].checked = false; // після кліку, тобто після події - онулити
+//     myForm.rad[1].checked = false;
+// };
 
-myForm.okBtn.onclick = (ev) => {
-ev.preventDefault() // preventDefault метод зупиняє всі події із коробки, без нього при кліку сторінка перезавантажувалась
-let text1 = myForm.someText.value;
+// ДЕСТРУКТУРИЗАЦІЯ обєктів
 
-let objToSend = {
-    text1
-};
-console.log(objToSend);
-myForm.someText.value = ""; // після кліку, тобто після події - онулити
-    myForm.check1[0].checked = false; // після кліку, тобто після події - онулити
-    myForm.check1[1].checked = false;
-    myForm.rad[0].checked = false; // після кліку, тобто після події - онулити
-    myForm.rad[1].checked = false;
-}
+// let vovasik = {
+//     name: "Vova", age: 22,
+//     car: {
+//         model: "Chevy",
+//         year: 2020
+//     },
+//     girl: {
+//         name: "Svitlana", age: 20
+//     }
+// };
+//
+// let work = {
+//     nameCompany : "RibGazMiaxSoft",
+//     payment : 500
+// };
+// let name1 = "V.M.";
+
+// let {name,girl} = vovasik;
+// let {name: newName,age, girl: {age : age1}} = vovasik; // name: newName - так я ОТРИМУЮ змінну name обєкта,
+// перейменовую на newName, але НЕ ЗМІНЮЮ обєкт
+// console.log(name1);
+// console.log(newName); // Отримую нову тимчасову змінну, що не належить обєкту, але бере дані із обєкта, бо деструктуризовані
+// console.log(age1);
+// console.log(vovasik.name);
+// ... - Три крапки - це спред оператор що деструктуризує обєкт
+// let {age, name, ... otherParams} = vovasik; // в otherParams ми засовуємо все інше як ОБЄКТ, що є обєкті, але не описано в змінній
+// console.log(otherParams);
+
+// let newVovasWithWork = {... vovasik, ... work}; // так склеяв два обєкти однорівнево, але не запхав 2 обєкти, а витягнув змінні і закинув в новий обєкт
+// console.log(newVovasWithWork);
+
+// ДЕСТРУКТУРИЗАЦІЯ масивів
+let arr = ["Vova", "Svitlana", "Iryna", "Max"];
+// let [VM, Svieta, Irka, ... otherBoys] = arr; // так я присвоюю змінну кожному запису в масиві як індекс
+// let [, , Irka, ... otherBoys] = arr; // через кому я дістаю 2 елемент... багато ком заміняють змінну яка мені не потрібна
+// console.log(Svieta); // "Svitlana"
+// console.log(otherBoys);
+// console.log(Irka);
+let newArr = [... arr, "Oleg"]; // так склеюю масиви в один новий масив
+console.log(newArr);
