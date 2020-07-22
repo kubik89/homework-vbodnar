@@ -149,10 +149,11 @@
 
 // ДЕСТРУКТУРИЗАЦІЯ масивів
 let arr = ["Vova", "Svitlana", "Iryna", "Max"];
+let name2 = ["Vika", "Vitalik"];
 // let [VM, Svieta, Irka, ... otherBoys] = arr; // так я присвоюю змінну кожному запису в масиві як індекс
 // let [, , Irka, ... otherBoys] = arr; // через кому я дістаю 2 елемент... багато ком заміняють змінну яка мені не потрібна
 // console.log(Svieta); // "Svitlana"
 // console.log(otherBoys);
 // console.log(Irka);
-let newArr = [... arr, "Oleg"]; // так склеюю масиви в один новий масив
+let newArr = [... arr, "Oleg", ... name2]; // так склеюю масиви в один новий масив
 console.log(newArr);
