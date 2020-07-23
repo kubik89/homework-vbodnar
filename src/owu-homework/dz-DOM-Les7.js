@@ -70,4 +70,18 @@
 //     console.log(document.forms.forTask1a2.input4.value);
 // };
 
+// - Сворити масив не цензцрних слів.
+// Сворити інпут текстового типу.
+// Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+// Кинути алерт з попередженням у випадку якщо містить.
+// Перевірку робити при натисканні на кнопку
+let words = ["one", "two", "three", "four"];
+let buttWords = document.getElementsByName("buttForWords");
+buttWords[0].onclick = () => {
+    for (let i = 0; i < words.length; i++) {
+    if (document.forms.forTask1a3.inputForWords.value === words[i]) {
+        alert("Це нецензурне слово");
+    }
+    }
+};
 
