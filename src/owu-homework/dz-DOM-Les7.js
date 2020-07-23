@@ -37,20 +37,37 @@
 // Вывести список комментариев в документ, каждый в своем блоке.
 // Добавьте каждому комментарию по кнопке для сворачивания его body.
 
-let comments = [{
-    title : 'lorem1',
-    body:'lorem ipsum dolo sit ameti 1'
-}, {
-    title : 'lorem2',
-    body:'lorem ipsum dolo sit ameti 2'
-}];
-for (let i = 0; i < comments.length; i++) {
-let div = document.createElement("div");
-    div.innerHTML += `<h1>${comments[i].title}</h1> <p>${comments[i].body}</p>`;
-    document.body.appendChild(div);
-let elementB = document.createElement("button");
-    document.body.appendChild(elementB);
-    elementB.onclick = () => {
-        div.style.display = "none";
-    }
-}
+// let comments = [{
+//     title : 'lorem1',
+//     body:'lorem ipsum dolo sit ameti 1'
+// }, {
+//     title : 'lorem2',
+//     body:'lorem ipsum dolo sit ameti 2'
+// }];
+// for (let i = 0; i < comments.length; i++) {
+// let div = document.createElement("div");
+//     div.innerHTML += `<h1>${comments[i].title}</h1> <p>${comments[i].body}</p>`;
+//     document.body.appendChild(div);
+// let elementB = document.createElement("button");
+//     document.body.appendChild(elementB);
+//     elementB.onclick = () => {
+//         div.style.display = "none";
+//     }
+// }
+
+// створити 2 форми  по 2 інпути в кожній.
+// ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
+// Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
+// Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
+// let elementButton1 = document.getElementsByName("okBtnForTask1a1");
+// elementButton1[0].onclick = () => {
+//     console.log(document.forms.forTask1a1.input1.value);
+//     console.log(document.forms.forTask1a1.input2.value);
+// };
+// let elementButton2 = document.getElementsByName("okBtnForTask1a2");
+// elementButton2[0].onclick = () => {
+//     console.log(document.forms.forTask1a2.input3.value);
+//     console.log(document.forms.forTask1a2.input4.value);
+// };
+
+
