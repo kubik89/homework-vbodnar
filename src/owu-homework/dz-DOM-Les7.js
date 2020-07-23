@@ -72,16 +72,33 @@
 
 // - Сворити масив не цензцрних слів.
 // Сворити інпут текстового типу.
-// Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+// Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // Кинути алерт з попередженням у випадку якщо містить.
 // Перевірку робити при натисканні на кнопку
-let words = ["one", "two", "three", "four"];
-let buttWords = document.getElementsByName("buttForWords");
-buttWords[0].onclick = () => {
-    for (let i = 0; i < words.length; i++) {
-    if (document.forms.forTask1a3.inputForWords.value === words[i]) {
-        alert("Це нецензурне слово");
-    }
-    }
-};
+// let words = ["one", "two", "three", "four"];
+// let buttWords = document.getElementsByName("buttForWords");
+// buttWords[0].onclick = () => {
+//     for (let i = 0; i < words.length; i++) {
+//     if (document.forms.forTask1a3.inputForWords.value === words[i]) {
+//         alert("Це нецензурне слово");
+//     }
+//     }
+// };
+
+// Потрібно перевіряти чи не містить ціле речення в собі погані слова.
+
+// let buttWords = document.getElementsByName("buttForWords");
+// buttWords[0].onclick = () => {
+//     let words = ["івіава", "пішіло1", "пішло"];
+//     let sentence = document.forms.forTask1a3.inputForWords.value;
+//     let aerr = sentence.split(" ");
+//     for (let i = 0; i < aerr.length; i++) {
+//         for (let j = 0; j < words.length; j++) {
+//             if (aerr[i] === words[j]) {
+//                 alert("знайшов " + words[j]);
+//             }
+//         }
+//         aerr[i]++;
+//     }
+// };
 
