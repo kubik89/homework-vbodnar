@@ -6,7 +6,7 @@
 
 // let elementMyClassGreenB = document.querySelector("#green b.MyClass");
 
-// element.setAttribute("id", "customIDvb"); // так як встановив id customIDvb для element
+// element.setAttribute("id", "customIDvb"); // так я встановив id customIDvb для element
 // console.log(element);
 
 
@@ -81,7 +81,7 @@
 // let blueDiv = document.getElementById("blue");
 // let greenDiv = document.getElementById("green");
 //
-// redDiv.addEventListener("click", (ev)=> { // тип Click Той самий onclick але без On треба вказувати
+// redDiv.addEventListener("click", (ev)=> { // тип Click Той самий onclick але без On треба вказувати для EventListener
 //     // listener - просто поставити дужки і зявиться, якась функція що щось робить
 //     ev.stopPropagation();
 //     console.log(redDiv);

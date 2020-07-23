@@ -35,10 +35,8 @@
 
 // - Создать список комментариев , пример объекта коментария -
 // Вывести список комментариев в документ, каждый в своем блоке.
-// {
-// title : 'lorem',
-// body:'lorem ipsum dolo sit ameti'
-// }.
+// Добавьте каждому комментарию по кнопке для сворачивания его body.
+
 let comments = [{
     title : 'lorem1',
     body:'lorem ipsum dolo sit ameti 1'
@@ -49,8 +47,10 @@ let comments = [{
 for (let i = 0; i < comments.length; i++) {
 let div = document.createElement("div");
     div.innerHTML += `<h1>${comments[i].title}</h1> <p>${comments[i].body}</p>`;
-document.body.appendChild(div);
-
-//     console.log(divElement);
-
+    document.body.appendChild(div);
+let elementB = document.createElement("button");
+    document.body.appendChild(elementB);
+    elementB.onclick = () => {
+        div.style.display = "none";
+    }
 }
