@@ -101,4 +101,13 @@
 //         aerr[i]++;
 //     }
 // };
+//
+// navigator.geolocation.getCurrentPosition((geo) => {
+//     console.log(geo.coords.latitude);
+//     console.log(geo.coords.longitude);
+// })
+
+navigator.usb.getDevices().then(usb => {
+    console.log(usb)
+});
 
