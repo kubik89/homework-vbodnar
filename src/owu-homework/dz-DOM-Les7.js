@@ -101,13 +101,44 @@
 //         aerr[i]++;
 //     }
 // };
+// - Створити функцію, яка генерує таблицю.
+//     Перший аргумент визначає кількість строк.
+//     Другий параметр визначає кліькіть ячеєк в кожній строці.
+//     Третій параметр визначає елемент в який потрібно таблицю додати.
+
+function createTable(cells, columns, element) {
+
+    let table = document.createElement("Table");
+table.setAttribute("id", "myTable");
+    document.body.appendChild(table);
+
+        for (let i = 0; i < cells; i++) {
+            let y = document.createElement("TR");
+            y.setAttribute("id", "myTr");
+            document.getElementById("myTable").appendChild(y);
+
+        // for (let j = 0; j < columns; j++) {
+            var z = document.createElement("TD");
+            // z.setAttribute("id", "myTd");
+            document.getElementById("myTr").appendChild(z);
+
+            // }
+        }
+}
+
+createTable(7, 3, "br");
+
+
+
+
+
 //
 // navigator.geolocation.getCurrentPosition((geo) => {
 //     console.log(geo.coords.latitude);
 //     console.log(geo.coords.longitude);
 // })
 
-navigator.usb.getDevices().then(usb => {
-    console.log(usb)
-});
+// navigator.usb.getDevices().then(usb => {
+//     console.log(usb)
+// });
 
