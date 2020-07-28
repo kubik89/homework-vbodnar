@@ -28,17 +28,22 @@
 <!--<input type="button" id="save" value="Save">-->
 
 <form id="AddressBook">
-    <input type="text" id="FullName" value="Full Name">
+
+    <input type="text" id="name" value="name">
     <input type="text" id="PhoneNumber" value="PhoneNumber">
     <input type="email" id="Email" value="Email">
     <input type="text" id="CN" value="Company Name">
     <input type="text" id="Department" value="Department">
     <input type="date" id="Birthday" value="2001-01-01">
-<!--    <input type="button" id="Save" value="Save">-->
+    <input type="button" id="Save" value="Save">
 </form>
 
-<div id="AllUsers">
+<div id="AllUsers"></div>
 
+<div id="EditForm" style="display: none"> // її спочатку не буде видно, лише коли редагуємо
+    <input type="text" id="editName">
+    <input type="text" id="editPhone">
+    <button id="editSave">Edit</button>
 </div>
 
 </body>

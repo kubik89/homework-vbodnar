@@ -105,47 +105,50 @@ let data = [
 let allUsersDiv = document.getElementById("AllUsers"); // в цей div буду запхаю ВСІ контакти з кнопками
 
 function adder() { // займається відмалюванням всіх елементів сторінки
+    allUsersDiv.innerHTML = ""; // очищаю текст цього елементу, щоб не копіювались дані які вже існують
     data.forEach(({id, name, phone}, index) => { // для всіх полів контакту, як ітерація
         let userDiv = document.createElement("div"); // створюю елемент
         let editBtn = document.createElement("button"); // створюю кнопку Редагувати
+        editBtn.innerText = "Edit";
         let removeBtn = document.createElement("button"); // створюю кнопку Видалити
         removeBtn.innerText = "Remove ME";
 
         removeBtn.onclick = () => { // при кліку на кнопку ВИДАЛИТИ ->
             data.splice(index, 1); // з масиву data видалити один елемент
-            allUsersDiv.innerHTML = ""; // і зробити текст div пустим
             adder(); // і щераз перестворити всі інші елементи, що були й не видалені, бо по-іншому видаляться всі
         };
 
-        userDiv.innerText = `${index + 1}. Name: ${name}, Phone: ${phone}`;
+        editBtn.onclick = () => {
+          editHelper({name, phone}, index);
+        };
+
+        userDiv.innerText = `${index + 1}. Name: ${name}, Phone: ${phone}, Email: `;
         userDiv.appendChild(removeBtn); // додаю кнопку Видалити кожному Контакту
+        userDiv.appendChild(editBtn);
         allUsersDiv.appendChild(userDiv); // додаю всі елементи  в div
-        // editBtn.appendChild(userDiv);
     })
 }
 adder();
 
 let elementSave = document.getElementById("Save");
-let fullName = document.getElementById("FullName");
-let phone = document.getElementById("PhoneNumber");
-let email = document.getElementById("Email");
-let comName = document.getElementById("CN");
+let NameInp = document.getElementById("name");
+let phoneInp = document.getElementById("PhoneNumber");
+let emailInp = document.getElementById("Email");
+let comNameInp = document.getElementById("CN");
 
 elementSave.onclick = () => {
-    let fullname = fullName.value;
-    let phone = phone.value;
-    let email = email.value;
-    let comName = comName.value;
-    data.push(fullname, phone, email, comName)
+    let name = NameInp.value;
+    let phone = phoneInp.value;
+    let email = emailInp.value;
+    let comName = comNameInp.value;
+
+    data.push ({
+        name, phone, email, comName
+    });
+    adder();
 };
 
-// elementSave.onclick = () => {
-//     let fullName = document.getElementById("FullName");
-//     fullName.value = localStorage.getItem("fullname")
-// };
+function editHelper({name, phone}, index) { // {name, phone} - деструктуризую обєкт user і приймаю лише name, phone
+    document.getElementById("EditForm").style.display = "block";
 
-// let oneFour = document.getElementById("oneFour");
-// oneFour.value = localStorage.getItem("oneFour");
-// oneFour.oninput = () => {
-//     localStorage.setItem("oneFour", oneFour.value)
-// };
+}
