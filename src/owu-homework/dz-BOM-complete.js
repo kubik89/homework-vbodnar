@@ -105,6 +105,9 @@ let data = [
 let allUsersDiv = document.getElementById("AllUsers"); // в цей div буду запхаю ВСІ контакти з кнопками
 
 function adder() { // займається відмалюванням всіх елементів сторінки
+    let item = localStorage.getItem("data");
+    let data = JSON.parse(item);
+
     allUsersDiv.innerHTML = ""; // очищаю текст цього елементу, щоб не копіювались дані які вже існують
     data.forEach(({id, name, phone}, index) => { // для всіх полів контакту, як ітерація
         let userDiv = document.createElement("div"); // створюю елемент
@@ -115,6 +118,7 @@ function adder() { // займається відмалюванням всіх �
 
         removeBtn.onclick = () => { // при кліку на кнопку ВИДАЛИТИ ->
             data.splice(index, 1); // з масиву data видалити один елемент
+            localStorage.setItem("data", JSON.stringify(data));
             adder(); // і щераз перестворити всі інші елементи, що були й не видалені, бо по-іншому видаляться всі
         };
 
@@ -128,6 +132,7 @@ function adder() { // займається відмалюванням всіх �
         allUsersDiv.appendChild(userDiv); // додаю всі елементи  в div
     })
 }
+
 adder();
 
 let elementSave = document.getElementById("Save");
@@ -145,10 +150,26 @@ elementSave.onclick = () => {
     data.push ({
         name, phone, email, comName
     });
+    localStorage.setItem("data", JSON.stringify(data));
     adder();
 };
 
 function editHelper({name, phone}, index) { // {name, phone} - деструктуризую обєкт user і приймаю лише name, phone
-    document.getElementById("EditForm").style.display = "block";
+    document.getElementById("EditForm").style.display = "block"; // тільки коли клікаю форма видима, бо в html вона display: none"
+    let editButton = document.getElementById("editSave");
+    let editName = document.getElementById("editName");
+    let editPhone = document.getElementById("editPhone");
+    editName.value = name;
+    editPhone.value = phone;
 
+    editButton.onclick = () => {
+        data[index].name = editName.value;
+        data[index].phone = editPhone.value;
+
+        localStorage.setItem("data", JSON.stringify(data));
+
+        adder();
+
+        document.getElementById("EditForm").style.display = "none";
+    }
 }
