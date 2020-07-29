@@ -13,26 +13,48 @@
 //     Якщо щось пішло не так (нема шо їсти), то має бути викинута помилка і решта функцій виконуватись не мають.
 //     Якщо ж все ок, то ви маєте прожити свій звичайний день.
 //     Кожна подія має бути з рандомною (не по зростанню) затримкою.
-
-function getUp(isStomachache, cb) { // якщо пркинувся й біль в животі
+let callor = 0;
+function getUp(isOpenEyes, cb) { // якщо пркинувся й біль в животі
     setTimeout(() => {
-        if (isStomachache) {
-            cb("болить живіт", null) // оскільки в нашій умові в функції callback спочатку err а потім result, то
-            // помилка на початку умови в лапках, тобто тут err = "болить живіт"
+        console.log("I can eat and have " + callor + " callories");
+        if (isOpenEyes) {
+            callor+=500;
+            console.log("I have " + callor + " callories");
+            cb(null, callor)
         } else {
-            cb(null, "Ранок почався добре") // тут result = "Ранок почався добре", а помилки немає
+            cb("Ранок почався так собі. ", null)
         }
-    }, 1000)
+    }, 500);
 }
+getUp(true, (err, result) => {
+   if (err) {
+       console.error(err, " Почуваюсь погано. ");
+   } else {
+       console.log("Спав добре. ", result + " калорій");
+
+       eatBreakfast(false, (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log("Поїв та набрав разом " + callor + " калорій. ")
+            }
+        });
+
+       // cleaning(false, (err, ) => {
+       //
+       // })
+   }
+});
 
 function eatBreakfast(noFood, cb) {
     setTimeout(() => {
         if (noFood) {
             cb("Need to go shop. ", null);
         } else {
-            cb(null, "Enjoy your meal. ")
+            callor += 1000;
+            cb(null, "Enjoy your meal. You have got " + callor)
         }
-    }, 500)
+    }, 600)
 }
 
 function cleaning(noWater, cb) {
@@ -40,9 +62,10 @@ function cleaning(noWater, cb) {
         if (noWater) {
             cb("No water for cleaning. ", null);
         } else {
-            cb(null, "Enjoy your cleaning. ")
+            callor-=200;
+            cb(null, "Enjoy your cleaning. " + callor)
         }
-    }, 500)
+    }, 700)
 }
 
 cleaning(false, (err, result)=> {
@@ -53,19 +76,11 @@ cleaning(false, (err, result)=> {
     }
 });
 
-eatBreakfast(true, (err, result) => {
-   if (err) {
-       console.error("go fast to buy food. ", err);
-   } else {
-       console.log(result, "Do't eat so much. ")
-   }
-});
+// eatBreakfast(true, (err, result) => {
+//    if (err) {
+//        console.error("go fast to buy food. ", err);
+//    } else {
+//        console.log(result, "Do't eat so much. ")
+//    }
+// });
 
-getUp(false, (err, result) => {
-   if (err) {
-       console.error(err);
-       console.error(err, " Почуваюсь погано. ");
-   } else {
-       console.log("Спав добре. ", result);
-   }
-});

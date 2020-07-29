@@ -66,49 +66,49 @@
 // });
 
 // Колбек в колбеці
-// function clearHouse(isJobDone, callB) {
-//     setTimeout(() => {
-//         if (isJobDone) {
-//             console.log("I'm cleaning yet");
-//         callB(null, 100); // спочатку передаю помилку, а потім дані
-//         } else {
-//             callB("Грошей немає, нічого не заробив", null) // в else навпаки - спочатку дані, а потім помилку
-//         }
-//     }, 100)
-// }
-//
-// function buyClothes(money, cb) {
-//     setTimeout(() => {
-//         if (money > 200) {
-//             console.log("It's enough to buy good jeans");
-//             money-=200; // Тобто потратив 200грн на покупку джинсів
-//
-//             cb(null, money)
-//
-//         } else {
-//             cb("Errrror, no enough money... ", null) // одяг не купив, тому null як дані - нічого.
-//         }
-//     }, 1000)
-// }
-//
-// clearHouse(true, (err, reward) => { // ПРАВИЛО "Error first, data last"
-//     if (err) {
-//         console.error(err)
-//     } else {
-//     console.log("________");
-//     console.log(err);
-//     console.log(reward);
-//     console.log("________");
-//     buyClothes(reward, (err, rest) => {  // запускаю тут свою функцію buyClothes, бо вона залажна від clearHouse, оскільки
-//                                     // якщо немає грошей (reward) за прибирання, то немає за що купити одяг
-//         if (err) {
-//             console.log(err)
-//         } else {
-//             console.log("Після покупки одягу залишилось " + rest)
-//         }
-//     })
-//     }
-// });
+function clearHouse(isJobDone, callB) {
+    setTimeout(() => {
+        if (isJobDone) {
+            console.log("I'm cleaning yet");
+        callB(null, 100); // спочатку передаю помилку, а потім дані
+        } else {
+            callB("Грошей немає, нічого не заробив", null) // в else навпаки - спочатку дані, а потім помилку
+        }
+    }, 100)
+}
+
+function buyClothes(money, cb) {
+    setTimeout(() => {
+        if (money > 200) {
+            console.log("It's enough to buy good jeans");
+            money-=200; // Тобто потратив 200грн на покупку джинсів
+
+            cb(null, money)
+
+        } else {
+            cb("Errrror, no enough money... ", null) // одяг не купив, тому null як дані - нічого.
+        }
+    }, 1000)
+}
+
+clearHouse(true, (err, reward) => { // ПРАВИЛО "Error first, data last"
+    if (err) {
+        console.error(err)
+    } else {
+    console.log("________");
+    console.log(err);
+    console.log(reward);
+    console.log("________");
+    buyClothes(reward, (err, rest) => {  // запускаю тут свою функцію buyClothes, бо вона залажна від clearHouse, оскільки
+                                    // якщо немає грошей (reward) за прибирання, то немає за що купити одяг
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("Після покупки одягу залишилось " + rest)
+        }
+    })
+    }
+});
 
 // PROMISE
 
