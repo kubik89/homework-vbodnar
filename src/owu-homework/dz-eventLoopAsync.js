@@ -4,8 +4,12 @@
 //     Має бути так
 // 1) прокинувся
 // 2) Поснідав
-// 3) почистав зуби
-// і т.д.
+// 3) помився
+// 4) огляд лекції
+// 5) обід
+// 6) домашка
+// 7) вечеря
+
 //     Якщо щось пішло не так (нема шо їсти), то має бути викинута помилка і решта функцій виконуватись не мають.
 //     Якщо ж все ок, то ви маєте прожити свій звичайний день.
 //     Кожна подія має бути з рандомною (не по зростанню) затримкою.
@@ -24,27 +28,44 @@ function getUp(isStomachache, cb) { // якщо пркинувся й біль �
 function eatBreakfast(noFood, cb) {
     setTimeout(() => {
         if (noFood) {
-            cb("Need to go shop", null);
+            cb("Need to go shop. ", null);
         } else {
-            cb(null, "Enjoy your meal")
+            cb(null, "Enjoy your meal. ")
         }
     }, 500)
 }
 
+function cleaning(noWater, cb) {
+    setTimeout(() => {
+        if (noWater) {
+            cb("No water for cleaning. ", null);
+        } else {
+            cb(null, "Enjoy your cleaning. ")
+        }
+    }, 500)
+}
+
+cleaning(false, (err, result)=> {
+    if (err) {
+        console.error("Call to water service. ", err)
+    } else {
+        console.log(result, "Do not remind to save water ))) ")
+    }
+});
+
 eatBreakfast(true, (err, result) => {
    if (err) {
-       console.error("go fast to buy food", err);
+       console.error("go fast to buy food. ", err);
    } else {
-       console.log(result, "Do't eat so much ")
+       console.log(result, "Do't eat so much. ")
    }
 });
 
-// getUp(false, (err, result) => {
-//    if (err) {
-//        console.error(err);
-//        console.error("Почуваюсь погано");
-//    } else {
-//        console.log("Спав добре");
-//        console.log(result)
-//    }
-// });
+getUp(false, (err, result) => {
+   if (err) {
+       console.error(err);
+       console.error(err, " Почуваюсь погано. ");
+   } else {
+       console.log("Спав добре. ", result);
+   }
+});
