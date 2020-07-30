@@ -90,7 +90,6 @@ function buyClothes(money, cb) {
         }
     }, 1000)
 }
-
 clearHouse(true, (err, reward) => { // ПРАВИЛО "Error first, data last"
     if (err) {
         console.error(err)
@@ -109,6 +108,7 @@ clearHouse(true, (err, reward) => { // ПРАВИЛО "Error first, data last"
     })
     }
 });
+
 
 // PROMISE
 

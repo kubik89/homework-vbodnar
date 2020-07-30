@@ -13,6 +13,30 @@
 //     Якщо щось пішло не так (нема шо їсти), то має бути викинута помилка і решта функцій виконуватись не мають.
 //     Якщо ж все ок, то ви маєте прожити свій звичайний день.
 //     Кожна подія має бути з рандомною (не по зростанню) затримкою.
+getUp(true, (err, result) => {
+   if (err) {
+       console.error(err, " Почуваюсь погано. ");
+   } else {
+       console.log("Спав добре. ", result + " калорій");
+
+       eatBreakfast(false, (err, rest) => {
+            if (err) {
+                console.log(err, "Немає що їсти. День пропав. НІчого не роблю далі. ")
+            } else {
+                console.log("Поїв та набрав разом ", rest)
+            }
+
+            cleaning(true, (err, rest) => {
+                if (err) {
+                    console.error("Без води немає життя, нічого не роблю!")
+                } else {
+                   console.log("Після миття залишилось " + rest + " калорій. ")
+                }
+            })
+        });
+   }
+});
+
 let callor = 0;
 function getUp(isOpenEyes, cb) { // якщо пркинувся й біль в животі
     setTimeout(() => {
@@ -26,25 +50,6 @@ function getUp(isOpenEyes, cb) { // якщо пркинувся й біль в �
         }
     }, 500);
 }
-getUp(true, (err, result) => {
-   if (err) {
-       console.error(err, " Почуваюсь погано. ");
-   } else {
-       console.log("Спав добре. ", result + " калорій");
-
-       eatBreakfast(false, (err, result) => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("Поїв та набрав разом " + callor + " калорій. ")
-            }
-        });
-
-       // cleaning(false, (err, ) => {
-       //
-       // })
-   }
-});
 
 function eatBreakfast(noFood, cb) {
     setTimeout(() => {
@@ -52,7 +57,7 @@ function eatBreakfast(noFood, cb) {
             cb("Need to go shop. ", null);
         } else {
             callor += 1000;
-            cb(null, "Enjoy your meal. You have got " + callor)
+            cb(null, callor + " калорій. ") // rest - callor + " калорій. "
         }
     }, 600)
 }
@@ -63,24 +68,9 @@ function cleaning(noWater, cb) {
             cb("No water for cleaning. ", null);
         } else {
             callor-=200;
-            cb(null, "Enjoy your cleaning. " + callor)
+            cb(null, callor)
         }
-    }, 700)
+    }, 500)
 }
 
-cleaning(false, (err, result)=> {
-    if (err) {
-        console.error("Call to water service. ", err)
-    } else {
-        console.log(result, "Do not remind to save water ))) ")
-    }
-});
-
-// eatBreakfast(true, (err, result) => {
-//    if (err) {
-//        console.error("go fast to buy food. ", err);
-//    } else {
-//        console.log(result, "Do't eat so much. ")
-//    }
-// });
 
