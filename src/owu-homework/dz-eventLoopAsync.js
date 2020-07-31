@@ -211,13 +211,28 @@
 
                 // Через асинк авейт.
 
-async function myDailyJobs() {
+async function myDailyJobs()
+{
     try {
-        await getUp(true);
-        console.log(callor)
+        let callor = await getUp(true); // всі чекають доки не виконається кожна функція async await
+                                                    // після виконання УСПІШНОГО виконання функції getUp вертається
+                                                    // якась нова змінна callor та повертає успішне виконання функції із resolve
+        console.log("Це callor після сну - " + callor);
+
+        let rest = await eatBreakfast(false, callor);
+        console.log("Це rest після сніданку - " + rest);
+
+        let callAfterCleaning = await cleaning(true, rest);
+        console.log(callAfterCleaning);
+
+        let callAfterLection = await lectionOverview(true, callAfterCleaning);
+        console.log(callAfterLection);
+
+        let callAfterLunch = await haveLunch(true, callAfterCleaning);
+        console.log(callAfterLunch);
 
     } catch (e) {
-
+        console.log(e)
     }
 }
 
@@ -236,3 +251,58 @@ function getUp(isOpenEyes) { // якщо пркинувся й біль в жи�
         }, 500);
     })
 }
+
+function eatBreakfast(noFood) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (noFood) {
+                reject("Need to go shop. ");
+            } else {
+                callor += 1000;
+                resolve(callor + " калорій . ")
+            }
+        }, 3000)
+    })
+}
+
+function cleaning(noWater) {
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (noWater) {
+            reject ("No water for cleaning. ");
+        } else {
+            callor-=200;
+            resolve("Після миття залишилось " + callor)
+        }
+    }, 400)
+    })
+}
+
+function lectionOverview(isVideoPresent) {
+    return new Promise((resolve, reject) => {
+   setTimeout(() => {
+       if(isVideoPresent) {
+           console.log("Вивчаю лекцію... ");
+           callor-=450;
+           resolve( "Калорій після огляду лекції " + callor);
+       } else {
+           reject("Віктор не залив відео, день пропав");
+       }
+   },700)
+    })
+}
+
+function haveLunch(isHaveFood) {
+    return new Promise((resolve, reject) => {
+    setTimeout( () => {
+        if (isHaveFood) {
+            callor+=1000;
+            resolve("Після обіду залишок калорій " +  callor)
+        } else {
+            reject("No food for lunch")
+        }
+    }, 10)
+    })
+}
+
+myDailyJobs();
