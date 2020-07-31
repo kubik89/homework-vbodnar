@@ -96,3 +96,10 @@ sayHelo.apply(vova); // Метод apply допомагає викликати �
 let viktorsHello = sayHelo.bind(viktor); // bind повертає нову функцію як в змінну, сам не викликається
 viktorsHello(); // тепер змінна viktorsHello стала функціює яку тепер можна викликати БАГАТО РАЗІВ, коли call і apply лише раз
 
+function changePayment(changeRate, newPosition) {
+    this.payment+= changeRate;
+    this.position = newPosition;
+    console.log(this) // показую this, бо його ми використовуємо у функції як аргумент
+}
+changePayment.call (viktor, 100, "Owner");  // перший аргумент (viktor) відповідає за this, інші по черзі дані які
+                                            // віддаються у функцію, тобто 100=>changeRate, "Owner" => newPosition
