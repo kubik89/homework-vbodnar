@@ -67,39 +67,118 @@
 
                     // CARRING - Карирование
 
-    let viktor = {
-    name: "Viktor",
-    age: 20,
-    payment: 9999,
-    position: "Middle"
-};
-let vova = {
-    name: "Volodymyr",
-    age: 20,
-    payment: 99999999,
-    position: "Senior"
-};
-let dima = {
-    name: "Dmytro",
-    age: 20,
-    payment: 999,
-    position: "Junior"
-};
+//     let viktor = {
+//     name: "Viktor",
+//     age: 20,
+//     payment: 9999,
+//     position: "Middle"
+// };
+// let vova = {
+//     name: "Volodymyr",
+//     age: 20,
+//     payment: 99999999,
+//     position: "Senior"
+// };
+// let dima = {
+//     name: "Dmytro",
+//     age: 20,
+//     payment: 999,
+//     position: "Junior"
+// };
+//
+// function sayHelo() {
+//     console.log(this.name + " say hello to u")
+// }
+//
+// let a = sayHelo.call(dima); // Метод call допомагає викликати функцію із певним обєктом ЛИШЕ РАЗ, допомагають привязати this
+// sayHelo.apply(vova); // Метод apply допомагає викликати функція із певним обєктом ЛИШЕ РАЗ - не можна привязати до змінної
+//
+// let viktorsHello = sayHelo.bind(viktor); // bind повертає нову функцію як в змінну, сам не викликається
+// viktorsHello(); // тепер змінна viktorsHello стала функціює яку тепер можна викликати БАГАТО РАЗІВ, коли call і apply лише раз
+//
+//
+// // якщо у виклику функції нижче мені не треба змінювати ЗП чи посаду, то можна залишати їх як ті що по замовчуванні
+// // function changePayment(changeRate, newPosition = this.position) {
+// function changePayment(changeRate, newPosition) {
+//     this.payment+= changeRate;
+//     this.position = newPosition;
+//     // this.position = newPosition? newPosition: this.position; // Тернарка: Нова посада є? Вкажи, якщо немає - залиши ту
+//                                                             // що по замовчуванні
+//                                                             // можна тернарним оператором зилишити позицію без змін
+//                                                             // якщо вона не передається в функції як аргументи
+//     console.log(this) // показую this, бо його ми використовуємо у функції як аргумент
+// }
+// // call та apply - майже не відрізняються, виконанням точно ні, лише приймають аргументи, один в [] як масив, інший без []
+// // bind - це виконанням той самий call та apply, але запускається ЛИШЕ ЯК ФУНКЦІЯ використовуючи ()
+// changePayment.call (viktor, 100, "Owner");  // перший аргумент (viktor) відповідає за this, інші по черзі дані які
+//                                             // віддаються у функцію, тобто 100=>changeRate, "Owner" => newPosition
+// changePayment.apply(dima, [111, "SuperSenik"]);
+//
+// let paymentVovas = changePayment.bind(vova, 123000, "StrongJunior");
+// paymentVovas();
 
-function sayHelo() {
-    console.log(this.name + " say hello to u")
-}
 
-let a = sayHelo.call(dima); // Метод call допомагає викликати функцію із певним обєктом ЛИШЕ РАЗ, допомагають привязати this
-sayHelo.apply(vova); // Метод apply допомагає викликати функція із певним обєктом ЛИШЕ РАЗ - не можна привязати до змінної
 
-let viktorsHello = sayHelo.bind(viktor); // bind повертає нову функцію як в змінну, сам не викликається
-viktorsHello(); // тепер змінна viktorsHello стала функціює яку тепер можна викликати БАГАТО РАЗІВ, коли call і apply лише раз
+// ЗАМИКАННЯ - це приклад лічильника на замикання
+// ЗАМИКАННЯ - це властивість змінної бути захищеною або закритою від інших. Достукатися до неї можна через, наприклад,
+// getter та setter
 
-function changePayment(changeRate, newPosition) {
-    this.payment+= changeRate;
-    this.position = newPosition;
-    console.log(this) // показую this, бо його ми використовуємо у функції як аргумент
-}
-changePayment.call (viktor, 100, "Owner");  // перший аргумент (viktor) відповідає за this, інші по черзі дані які
-                                            // віддаються у функцію, тобто 100=>changeRate, "Owner" => newPosition
+// function closeFunc() {
+//     let x = 0;
+//     return () => {
+//         x++;
+//         console.log(x)
+//     }
+// }
+// closeFunc() (); // якщо я запущу дану функцію з одними дужками, то отримаю сам текст функції, якщо з двома - виконання
+//                 // таким чином виконується приватність в JS, в даному випадку змінної x
+//
+// let closeFunc1 = closeFunc();
+// closeFunc1();
+// closeFunc1();
+// closeFunc1();
+// // Закінчилось - це приклад лічильника на замикання
+
+// function closure() {
+//     let name = "Vova";
+//     let age = 25;
+//
+//     function getName() {
+//         console.log(name)
+//     }
+//     function getage() {
+//         console.log(age)
+//     }
+//     function setAge(newAge) {
+//         if (newAge > 30) {
+//             console.error("Ти старієш, чувак");
+//             return
+//         } else {
+//             age = newAge;
+//         }
+//     }
+//     return {
+//         getName,
+//         getage,
+//         setAge
+//     }
+// }
+// let aboutMe = closure();
+// aboutMe.getName();
+// aboutMe.getage();
+//
+// aboutMe.setAge(31);
+// aboutMe.getage();
+
+
+// MAP, SET
+// Set - це така структура даних, яка зберігає в собі унікальні значення
+
+// Забрати повторні значення
+let numbers = [1,5,9,4,8,5,0,11,0,8,4,5,9];
+let uniqueValue = new Set;
+
+numbers.forEach(value => {
+    uniqueValue.add(value);
+});
+console.log(uniqueValue);
