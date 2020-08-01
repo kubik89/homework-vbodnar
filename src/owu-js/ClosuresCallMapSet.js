@@ -139,46 +139,50 @@
 // closeFunc1();
 // // Закінчилось - це приклад лічильника на замикання
 
-// function closure() {
-//     let name = "Vova";
-//     let age = 25;
-//
-//     function getName() {
-//         console.log(name)
-//     }
-//     function getage() {
-//         console.log(age)
-//     }
-//     function setAge(newAge) {
-//         if (newAge > 30) {
-//             console.error("Ти старієш, чувак");
-//             return
-//         } else {
-//             age = newAge;
-//         }
-//     }
-//     return {
-//         getName,
-//         getage,
-//         setAge
-//     }
-// }
-// let aboutMe = closure();
-// aboutMe.getName();
-// aboutMe.getage();
-//
-// aboutMe.setAge(31);
-// aboutMe.getage();
+function closure() {
+    let name = "Vova";
+    let age = 25;
+
+    function getName() {
+        console.log(name)
+    }
+    function getage() {
+        console.log(age)
+    }
+    function setAge(newAge) {
+        if (newAge > 30) {
+            console.error("Ти старієш, чувак");
+            return
+        } else {
+            age = newAge;
+        }
+    }
+    return {
+        getName,
+        getage,
+        setAge
+    }
+}
+let aboutMe = closure();
+aboutMe.getName();
+aboutMe.getage();
+
+aboutMe.setAge(31);
+aboutMe.getage();
 
 
 // MAP, SET
 // Set - це така структура даних, яка зберігає в собі унікальні значення
 
-// Забрати повторні значення
-let numbers = [1,5,9,4,8,5,0,11,0,8,4,5,9];
-let uniqueValue = new Set;
-
-numbers.forEach(value => {
-    uniqueValue.add(value);
-});
-console.log(uniqueValue);
+// // Забрати повторні значення
+// let numbers = [1,5,9,4,8,5,0,11,0,8,4,5,9];
+// let uniqueValue = new Set;
+//
+// numbers.forEach(value => {
+//     uniqueValue.add(value);
+// });
+// console.log(uniqueValue);
+//
+// // Array.from() зробить із Set масив цих чисел, що визначив SET
+// let from = Array.from(uniqueValue);
+// console.log(from);
