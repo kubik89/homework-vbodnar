@@ -13,28 +13,24 @@ function userCard(number) {
 
     function putCredits(money) {
         // return cardOptions.balance+= money;
-        getCardOptions().balance += money;
+        cardOptions.balance += money;
     }
 
     function setTransactionLimit(money) {
-        if (money > 100) {
-            console.error("Перевищений максимум")
-        } else {
-            transactionLimit = money;
+            cardOptions.transactionLimit = money;
         }
-    }
 
     function takeCredits(money) {
-        if (balance > money) {
+        if (cardOptions.balance > money) {
             console.log("Баланс більший за гроші");
-            if (money < transactionLimit) {
-                balance -= money;
-                console.log("Успішно. На залишку тепер " + balance);
+            if (money < cardOptions.transactionLimit) {
+                cardOptions.balance -= money;
+                console.log("Успішно. На залишку тепер " + cardOptions.balance);
             } else {
-                console.error("Помилка ліміту")
+                console.error("Недостатньо коштів на рахунку")
             }
         } else {
-            console.error("Помилка балансу");
+            console.error("Баланс менший за гроші");
         }
     }
 
@@ -46,10 +42,7 @@ function userCard(number) {
     }
 }
 
-// let user = userCard(3);
-// console.log(user.getCardOptions());
-//
-//
+
 class UserAccount {
 
     constructor(name) {
@@ -79,15 +72,20 @@ let vova = new UserAccount("Volodymyr");
 vova.addCard("Mono");
 vova.addCard("Privat");
 vova.addCard("GasBank");
-let card1 = vova.getCardByKey(2)
-card1.putCredits(280)
-console.log(card1.getCardOptions());
-// vova.addCard("Idea");
+let card2 = vova.getCardByKey(2);
+console.log(card2.getCardOptions());
+
+card2.putCredits(280);
+console.log(card2.getCardOptions());
+console.log(card2.takeCredits(80));
+card2.setTransactionLimit(500);
+console.log(card2.getCardOptions());
+
+
 // console.log(vova.cards);
 // console.log(userCard(2).getCardOptions());
 // userCard(2).putCredits(200);
 // console.log(userCard(2).getCardOptions());
-// vova.
 
 
 // for (let i = 0; i < this.cards.length; i++) {
