@@ -53,12 +53,6 @@ function userCard(number) {
         card.putCredits(money)
     }
 
-    // cardOptions.historyLogs.forEach(value => {
-    //     if (value>0) {
-    //         console.log("Більше нуля")
-    //     } else console.log("Менше нуля")
-    // })
-
     return {
         getCardOptions,
         putCredits,
@@ -87,9 +81,6 @@ class UserAccount {
 
     addCard(nameOfCard) {
         if (this.cards.length < 3) {
-            // for (let i = this.cards.length+1; i < this.cards.length; i++) {
-            //     userCard([i])
-            // }
             this.cards.push(nameOfCard)
         } else {
             console.error('Ваш ліміт на кількість карт перевищенно!')
@@ -114,4 +105,3 @@ console.log(card1.getCardOptions());
 console.log(card2.getCardOptions());
 card2.takeCredits(50);
 console.log(card2.getCardOptions());
-
