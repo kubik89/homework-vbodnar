@@ -49,15 +49,14 @@ function userCard(number) {
     }
 
     function transferCredits(money, card) {
-        takeCredits(money);
-        card.putCredits(money)
+        takeCredits(money * 1.05) ;
+        card.putCredits(money / 1.05);
     }
 
     return {
         getCardOptions,
         putCredits,
         setTransactionLimit,
-        getTransactionLimit,
         takeCredits,
         transferCredits
     }
