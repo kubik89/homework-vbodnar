@@ -49,8 +49,8 @@ function userCard(number) {
     }
 
     function transferCredits(money, card) {
-        takeCredits(money * 1.05) ;
-        card.putCredits(money / 1.05);
+        takeCredits(money * 1.005) ;
+        card.putCredits(money - (money * 0.005));
     }
 
     return {
@@ -101,6 +101,6 @@ card1.setTransactionLimit(800);
 card1.transferCredits(300, card2);
 console.log(card1.getCardOptions());
 
-console.log(card2.getCardOptions());
-card2.takeCredits(50);
-console.log(card2.getCardOptions());
+// console.log(card2.getCardOptions());
+// card2.takeCredits(50);
+// console.log(card2.getCardOptions());
