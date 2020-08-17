@@ -54,10 +54,27 @@ db.getCollection('students').aggregate({
 
 10)? Знайти середній бал дітей які вивчають математику або фізику
 db.getCollection('students').find({
+
     "lessons" : "english",
     "lessons" : "geology"
 })
 
+11) Знайти середній бал по 2 класі
+db.getCollection('students').aggregate({
+    $group: {
+        "_id": "$class",
+        avgScore_Sum: {
+            $avg: "$avgScore"
+        }
+    }
+},
+    {
+        $match: {
+            _id: {
+                $eq: 2
+            }
+        }
+})
 
 12) Знайти дітей з не повною сімєю
 db.getCollection('students').find({
