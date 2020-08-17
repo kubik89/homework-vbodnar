@@ -52,12 +52,25 @@ db.getCollection('students').aggregate({
     }
 })
 
-10)? Знайти середній бал дітей які вивчають математику або фізику
-db.getCollection('students').find({
-
-    "lessons" : "english",
-    "lessons" : "geology"
-})
+10) Знайти середній бал дітей які вивчають математику або фізику
+db.getCollection('students').aggregate({
+    $group: {
+        _id: "$lessons",
+        avgScore_Sum: {
+            $sum: "$avgScore"
+        }
+    }
+},
+    {
+        $match: {
+            _id: {
+                $eq: "mathematics"
+            },
+            _id: {
+                $eq: "physics"
+            }
+        }
+    })
 
 11) Знайти середній бал по 2 класі
 db.getCollection('students').aggregate({
@@ -90,3 +103,36 @@ db.getCollection('students').find({
    }
 })
 
+17) Знайти дітей які вчаться в початковій школі (до 5 класу) і вивчають фізику ( physics )
+db.getCollection('students').find ({
+    class: {
+        $lte: 5
+    },
+    lessons: {
+        $eq: "physics"
+    }
+})
+
+18) Знайти найуспішніший клас
+db.getCollection('students').aggregate ({
+    $group: {
+        "_id": "$class",
+        Score_Avg: {
+            $avg: "$avgScore"
+        }
+    }
+},
+    {
+        $sort: {
+            Score_Avg: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 1
+        }
+    }
+    )
