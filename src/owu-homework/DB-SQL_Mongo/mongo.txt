@@ -9,7 +9,13 @@ db.getCollection('students').find({
 })
 
 3) Знайти всіх дітей які вивчають фізику
+db.getCollection('students').find({
+    "lessons" : "physics"
 
+4) Знайти всіх дітей, батьки яких працюють в науці ( scientist )
+db.getCollection('students').find({
+    "parents.profession" : "scientist"
+})
 
 5) Знайти дітей, в яких середня оцінка більша за 4
 db.getCollection('students').find({
@@ -37,3 +43,33 @@ db.getCollection('students')
     .limit(3)
 
 9) Знайти середній бал по школі
+db.getCollection('students').aggregate({
+    $group: {
+        "_id" : 0,
+        avgScore_AVG: {
+            $avg: "$avgScore"
+        }
+    }
+})
+
+10)? Знайти середній бал дітей які вивчають математику або фізику
+db.getCollection('students').find({
+    "lessons" : "english",
+    "lessons" : "geology"
+})
+
+
+12) Знайти дітей з не повною сімєю
+db.getCollection('students').find({
+    parents: {
+        $size: 1
+    }
+})
+
+13) Знайти батьків які не працюють
+db.getCollection('students').find({
+   "parents.profession" : {
+       $exists: false
+   }
+})
+
