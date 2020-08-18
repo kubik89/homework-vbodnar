@@ -103,6 +103,50 @@ db.getCollection('students').find({
    }
 })
 
+14) Не працюючих батьків влаштувати офіціантами
+db.getCollection('students').update(
+{
+   "parents.0.profession": {
+       $exists: false
+   }
+},
+{
+    $set: {
+        "parents.0.profession": "Officiant"
+        }
+},
+{
+    multi: true
+    }
+)
+
+15) Вигнати дітей, які мають середній бал менше ніж 2.5
+db.getCollection('students').remove(
+    {
+        avgScore: {
+            $lt: 2.5
+        }
+    }
+    )
+
+16) Дітям, батьки яких працюють в освіті ( teacher ) поставити 5
+db.getCollection('students').update(
+    {
+        $or: [
+            {"parents.0.profession": "teacher"},
+            {"parents.1.profession": "teacher"}
+        ]
+    },
+    {
+        $set: {
+            avgScore: 5
+        }
+    },
+    {
+        multi: true
+    }
+    )
+
 17) Знайти дітей які вчаться в початковій школі (до 5 класу) і вивчають фізику ( physics )
 db.getCollection('students').find ({
     class: {
