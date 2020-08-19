@@ -2,7 +2,7 @@
 <!--  все що тут завжди має бути обгорнуте в щось, наприклад div-->
   <div>
 <!--    <h1>{{message}}</h1>-->
-<!--    <h1>{{age1}}</h1>-->
+    <h1>{{age1 * 365 + "днів"}}</h1>
 <!--    <h1 v-once>{{ message }}</h1>-->
 <!--&lt;!&ndash;    якщо треба перерендерити сторінку, щоб лише РАЗ вивести оригінальне&ndash;&gt;-->
 <!--&lt;!&ndash;    повідомлення, а не переприсвоєне методом, то використовуємо v-once&ndash;&gt;-->
@@ -18,17 +18,25 @@
 <!--       переміщаючись по p отримую координати x y-->
       Coordinates: {{x}} {{y}}
     </p>
+      <p>{{ x > 50 ? "now x = " + x: "x less than 50"}}</p>
 
-    <button v-on:click="increase5(5)">ClickMe</button>
     <button v-on:click="decrease5(5)">ClickMe</button>
+    <button v-on:click="increase5(5)">ClickMe</button>
     <p>{{counter}}</p>
+      <p>{{ counter > 10 ? "More that 10" : "Less or equal than 10" }}</p>
 
 <!--    при подвійному кліку спрацює помилка функція alert1-->
     <input type="text" v-on:dblclick="alert1">
 
 <!--    після введення тексту нажати Enter чи Space - спрацює помилка функція alert1-->
+<!--      після івенту keyup через крапку ставиться модифікатор (enter, space .... його можна не ставити)-->
+<!--      в цьому випадку без модифікатора alert1 спрацює відразу після введення першого символу в полі-->
 <!--    <input type="text" v-on:keyup.enter.space="alert1">-->
+    <p></p>
 
+<!--      v-model дозволяє вписати автоматично текст із name-->
+        <input type="text" v-model="name">
+<!--        <p>{{name}}</p>-->
 
   </div>
 </template>
@@ -40,10 +48,13 @@ export default {
   data() {
     return {
       message: "Hello World1",
-      age1: 30,
+      age1: 31,
       link: "http://google.com",
       finishedLink: "<a href='http://google.com'>Google</a>",
       counter: 0,
+        x: 0,
+        y: 0,
+        name: "Volodymyr"
     }
   },
   methods: {
