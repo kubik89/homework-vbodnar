@@ -4,8 +4,8 @@
         <!--    <h1>{{message}}</h1>-->
         <h1>{{age1 * 365 + "днів"}}</h1>
         <!--    <h1 v-once>{{ message }}</h1>-->
-        <!--&lt;!&ndash;    якщо треба перерендерити сторінку, щоб лише РАЗ вивести оригінальне&ndash;&gt;-->
-        <!--&lt;!&ndash;    повідомлення, а не переприсвоєне методом, то використовуємо v-once&ndash;&gt;-->
+        <!--    якщо треба перерендерити сторінку, щоб лише РАЗ вивести оригінальне-->
+<!--            повідомлення, а не переприсвоєне методом, то використовуємо v-once-->
         <!--    <p>{{sayHello()}}</p>-->
         <!--    <p>-->
         <!--      <a v-bind:href="link">Google</a>-->
@@ -24,7 +24,7 @@
         <!--Робимо 2 кнопки що будуть додавати лічильник по кліку-->
 
         <!--метод v-on тепер замінили на @ , можна тепер писати лише @-->
-        <!--метод v-on тепер замінили на : , можна тепер писати лише : -->
+        <!--метод v-bind тепер замінили на : , можна тепер писати лише : -->
         <!--        Варіант 1-->
 <!--        <button v-on:click="decrease5(5)">ClickMe</button>-->
 <!--        <button v-on:click="increase5(5)">ClickMe</button>-->
@@ -66,6 +66,43 @@
 <!--            вводимо текст з назвою кольору div в інпут і ця div із класом color малюється в нього-->
         </div>
 
+        <div>
+<!--            якщо клікнути на кнопку SHOW - поле з текстом зникне і відкриється інше поле зі значенням else-->
+<!--            тут теж v-else не живе без v-if -->
+<!--            v-if, якщо дивитися в елементах консолі, при кліку забирає його з DOM дерева, а потім назад його повертає-->
+<!--            v-show - накладає на елемент стиль display: none-- і не працює із v-else -->
+
+            <p v-if="show">
+<!--            <p v-show="show">-->
+                You can see me at the moment
+            </p>
+            <p v-else>
+            because ELSE - you see me
+            </p>
+            <button @click="show = !show">SHOW</button>
+<!--            <span>Hello!</span>-->
+        </div>
+
+<!--        <div>-->
+<!--            <ul>-->
+<!--&lt;!&ndash;                ІТЕРАЦІЯ масивів forEach - проходимось по масиву ingridients, беремо всі значення як ingr і виводимо Їх як {{ingr}} &ndash;&gt;-->
+<!--                <li v-for="(ingr, index1) in ingridients" :key="`${index1}`">-->
+<!--                    {{ingr}}-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--&lt;!&ndash;            ця кнопка додає до списку в масив слово salt&ndash;&gt;-->
+<!--            <button @click="ingridients.push('salt')">Add salt</button>-->
+<!--        </div>-->
+
+<!-- ІТЕРАЦІЯ обєктів-->
+        <div>
+            <ul>
+                <li v-for="(pers, number1) in persons" :key="`${number1}`">
+                    {{"Мене звати " + pers.name}}, {{"мені " + pers.age}}, {{"cтатус - " + pers.married}}
+                </li>
+            </ul>
+        </div>
+
     </div>
 </template>
 
@@ -89,7 +126,17 @@
                     surName: "Bondaryuk"
                 },
                 attachedRed: false,
-                color: "green"
+                color: "green",
+                show: true,
+                ingridients: ["meat", "fruits", "cookies"],
+                persons: [
+                    {
+                        name: "Vova", age: 25, married: true
+                    },
+                    {
+                        name: "Svitlana", age: 31, married: false
+                    }
+                ]
             }
         },
 
