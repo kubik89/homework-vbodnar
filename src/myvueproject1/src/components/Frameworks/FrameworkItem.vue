@@ -7,10 +7,15 @@
         <p>{{frameworks1.name}} - {{frameworks1.completed}}</p>
         <button @click="editTitle">Edit Title</button>
         <button @click="completeChg">CompleteChange</button>
+
+        <button @click="editFooter">Edit Footer</button>
     </div>
 </template>
 
 <script>
+// <!--    імпортую eventBus1 для звязку мід дочірніми елементами, бо вони спілкуються через батька використовуючи eventBus1-->
+    import {eventBus1} from "../../main";
+
     export default {
         name: "FrameworkItem",
         props: {
@@ -34,11 +39,17 @@
         },
         methods: {
             editTitle() {
-                let value = "new Title1234";
+                let value = "new Updated Title1234";
                 this.$emit("updateTitle", value)
             },
             completeChg() {
                 this.frameworks1.completed = true
+            },
+            editFooter() {
+                const value = "UpdateFooter";
+                this.$emit("updatefooter", value);
+                eventBus1.$emit("footerEdited", value);
+                console.log("this is EditFooter")
             }
         }
     }

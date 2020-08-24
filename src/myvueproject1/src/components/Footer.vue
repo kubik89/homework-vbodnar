@@ -5,8 +5,15 @@
 </template>
 
 <script>
+    import {eventBus1} from "../main";
+
     export default {
-        name: "Footer"
+        name: "Footer",
+        created() {
+            eventBus1.$on("footerEdited", (msg) => {
+                this.$refs.footer.textContent = msg
+            })
+        }
     }
 </script>
 
