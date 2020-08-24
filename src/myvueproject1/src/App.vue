@@ -1,60 +1,32 @@
 <template>
     <div>
-        <h1>{{msg}}</h1>
-<!--        при кліку на першу кнопку назва кнопки зміниться на Changed-->
-        <button @click="msg = 'Changed'">Update Title</button>
-        <button @click="destroy">Destroy</button>
+<!--        якщо компонент не містить даних, тобто пустий, можна його додати через слеш вкінці-->
+        <Header></Header>
+        <FrameworksList/>
+        <Footer/>
+
     </div>
 </template>
 
 <script>
+    import Header from "./components/Header";
+    import Footer from "./components/Footer";
+    import FrameworksList from "./components/Frameworks/FrameworksList";
+
     export default {
         name: 'App',
-        data() {
-            return {
-                msg: "Hello Vue"
-            }
+        components: {
+          //в компонентах міститься вся структура, тобто залежності, переадресації...
+          //  щоб додати компоненти слід вказати його назву та імпортувати.
+          //  якщо писати через два крапки, то він імпортується як вище import Header from "./components/Header";
+          //  або якщо без двох крапок, слід через Alt+Enter імпортувати
+          Header,
+          Footer: Footer,
+          FrameworksList
         },
 
-        methods: {
-            destroy() {
-                this.$destroy()
-            }
-        },
-            //Такий метод запускається під капотом, він дивиться, що є в data, які методи...
-            //Як видно вони винесені із методів
-            beforeCreate() {
-                console.log("before create")
-            },
-            //такий метод виконує компіляцію всіх змінних, проводить всі обчислення методів
-            created() {
-                console.log("created")
-            },
-            //цей метод замінює всі значення змінних в html компоненти, наприклад змінна msg передає своє значення в h1
-            beforeMount() {
-                console.log("before mount")
-            },
-            //тут шаблон прикріплюється до DOM дерева
-            mounted() {
-                console.log("mounted")
-            },
-        //тут проводиться повторний рендеринг сторінки
-        beforeUpdate() {
-            console.log("before update")
-        },
-        // оновлення того, що було потрібно для рендерингу. По суті при оновленні чогось два методи
-        // beforeUpdate і updated запускаються разом
-        updated() {
-            console.log("updated")
-        },
-        //запускається коли ми закриваємо сторінку чи додаток
-        //beforeDestroy і destroyed запускаються разом
-        beforeDestroy() {
-            console.log("beforeDestroy")
-        },
-        //після закриття додатку цей метод видаляє обєкт Vue із памяті і ми більше працювати з ним не можемо
-        destroyed() {
-            console.log("destroyed")
+        data() {
+            return {}
         }
     }
 </script>
