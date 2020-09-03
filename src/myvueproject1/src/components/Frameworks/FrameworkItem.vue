@@ -48,7 +48,12 @@
             editFooter() {
                 const value = "UpdateFooter";
                 this.$emit("updatefooter", value);
-                eventBus1.$emit("footerEdited", value);
+
+                const obj = {
+                    text: "this is Object vb",
+                    color: "sylver"
+                };
+                eventBus1.$emit("footerEdited", obj);
                 console.log("this is EditFooter")
             }
         }
