@@ -64,7 +64,7 @@ interface IUser {
         isNew: boolean
     }
 }
-let user1: IUser[] = [{name: "Volodymyr", age: 20, phone: {model: "A8", price: 10000, isNew: true}}];
+let user1: IUser = {name: "Volodymyr", age: 20, phone: {model: "A8", price: 10000, isNew: true}};
 
 function getSomeUserData(someValue: keyof IUser) {
     return user1[someValue] + "Я тут"
