@@ -59,7 +59,7 @@ interface IDeputat {
 let allDeps: IDeputat[] = [
     {firstName: "Andrii", lastName: "Hodowanyi", age: 25, bribeTaker: true, sizeOfBribe: 5000},
     {firstName: "Oleg", lastName: "Burmas", age: 34, bribeTaker: true, sizeOfBribe: 0},
-    {firstName: "Ihor", lastName: "Kolodii", age: 48, bribeTaker: false, sizeOfBribe: 0}
+    {firstName: "Ihor", lastName: "Kolodii", age: 48, bribeTaker: false, sizeOfBribe: 5001}
 ];
 
 
@@ -68,11 +68,13 @@ let allDeps: IDeputat[] = [
 function addNewDep(firstName, lastName, age, bribeTaker, sizeOfBribe) {
     allDeps.push({firstName, lastName, age, bribeTaker, sizeOfBribe})
 }
+
 function getAllDeps() {
     for (let i = 0; i < allDeps.length; i++) {
         console.log(allDeps[i].lastName + " " + allDeps[i].fractionName)
     }
 }
+
 function getAllBrTakers(someValue: keyof IDeputat) {
     return allDeps[someValue]
 }
@@ -113,8 +115,6 @@ class Deputat extends Human {
 }
 
 
-
-
 // let dep1 = new Deputat("Viktor", "Ljashko", 45, 0, 0, 80, false);
 // let dep2 = new Deputat("Vitalii", "Danilov", 55, 0, 100000, 69, true);
 //
@@ -144,46 +144,87 @@ class Fraction {
                 console.log("Депутата додано до фракції");
                 return
             }
-        } console.log("Такий депутат не знайдений");
+        }
+        console.log("Такий депутат не знайдений");
     }
+
     delDeputat(lname) {
         for (let i = 0; i < allDeps.length; i++) {
             if (allDeps[i].lastName == lname) {
                 console.log("Депутата на видалення знайдено");
                 allDeps.splice(i, 1);
                 console.log(lname + " видалений");
-                return
             }
-        } console.log("Жодного не видалено");
+        }
+        console.log("Жодного не видалено");
     }
+
+    delAllDeps() {
+        for (let i = 0; i < allDeps.length; i++) {
+            // console.log("Видалено " + allDeps[i].lastName);
+            // allDeps.splice(i, 1);
+            delete allDeps[i]
+        }
+    }
+
+    showMostBrTakers() {
+        let bribe = [];
+        for (let i = 0; i < allDeps.length; i++) {
+            bribe.push(allDeps[i].sizeOfBribe);
+        }
+        bribe.sort((a, b) => {
+            return b - a;
+        });
+        let bigBribe = bribe[0];
+        console.log(bribe[0] + " Найбільший хабар");
+        for (let i = 0; i < allDeps.length; i++) {
+            if (allDeps[i].sizeOfBribe === bribe[0]) {
+            console.log(allDeps[i].lastName)
+            }
+        }
+    }
+
     delAllBrTakers() {
         for (let i = 0; i < allDeps.length; i++) {
             if (allDeps[i].bribeTaker === true) {
-                console.log("Хабарника " + allDeps[i].lastName + " знайдено");
+                console.log("Хабарника " + allDeps[i].lastName + " знайдено й видалено");
                 allDeps.splice(i, 1);
-                return
             }
-        } return ("Жодного хабарника не виявлено");
+        }
+        return ("Жодного хабарника не виявлено");
+    }
+
+    getSumOfBribe() {
+        let sum = 0;
+        for (let i = 0; i < allDeps.length; i++) {
+            sum += allDeps[i].sizeOfBribe
+        }
+        console.log(sum)
     }
 }
-let newD1 = addNewDep("Volod", "Bod", 30, false, 0);
-let newD = addNewDep("Vova", "B", 45, false, 0);
 
+// Створюю нових депутатів
+let newD1 = addNewDep("Volod", "Bod", 30, false, 0);
+let newD2 = addNewDep("Vova", "B", 45, true, 500);
+// Створюю нову фракцію
 let solidarn = new Fraction("Solidarnistj");
+// Додаю депутата у фракцію
 solidarn.addDeputat("Burmas", "UA");
+
+// Видаляю депутата
 // solidarn.delDeputat("Hodowanyi");
 
+// Отримую всіх
 // let getAll = getAllDeps();
-solidarn.delAllBrTakers();
 
-// Клас фракція
-// поля:
-//     список депутатів
-// методи:
-//     додати депутата (вводимо з клави)
-// видалити депутата(теж з клави)
 // видалити всіх негідників які брали хабаря
-// вивести найбільшого хабарника
-// вивести всіх депутатів
+// solidarn.delAllBrTakers();
+
 // видалити всіх депутатів
+// solidarn.delAllDeps();
+
 // вивести загальну суму хабарів для фракції
+// solidarn.getSumOfBribe();
+
+// вивести найбільшого хабарника
+// solidarn.showMostBrTakers();
