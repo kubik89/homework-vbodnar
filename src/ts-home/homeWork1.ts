@@ -57,13 +57,26 @@ interface IDeputat {
 }
 
 let allDeps: IDeputat[] = [
-    {firstName: "Andrii", lastName: "Hodowanyi", age: 25, bribeTaker: true, sizeOfBribe: 5000},
+    {
+        firstName: "Andrii",
+        lastName: "Hodowanyi",
+        age: 25,
+        bribeTaker: true,
+        sizeOfBribe: 5000,
+        isMemberOfFraction: true,
+        fractionName: "Слуга народу"
+    },
     {firstName: "Oleg", lastName: "Burmas", age: 34, bribeTaker: true, sizeOfBribe: 0},
-    {firstName: "Ihor", lastName: "Kolodii", age: 48, bribeTaker: false, sizeOfBribe: 5001}
+    {
+        firstName: "Ihor",
+        lastName: "Kolodii",
+        age: 48,
+        bribeTaker: true,
+        sizeOfBribe: 5001,
+        isMemberOfFraction: true,
+        fractionName: "Європейська Солідарність"
+    }
 ];
-
-
-// allDeps.push({firstName: "sd", lastName: "sdsdsd", age: 55, sizeOfBribe: 444, bribeTaker: false});
 
 function addNewDep(firstName, lastName, age, bribeTaker, sizeOfBribe) {
     allDeps.push({firstName, lastName, age, bribeTaker, sizeOfBribe})
@@ -71,7 +84,7 @@ function addNewDep(firstName, lastName, age, bribeTaker, sizeOfBribe) {
 
 function getAllDeps() {
     for (let i = 0; i < allDeps.length; i++) {
-        console.log(allDeps[i].lastName + " " + allDeps[i].fractionName)
+       console.log(`${allDeps[i].lastName} - ${allDeps[i].fractionName}`);
     }
 }
 
@@ -114,22 +127,8 @@ class Deputat extends Human {
     }
 }
 
-
-// let dep1 = new Deputat("Viktor", "Ljashko", 45, 0, 0, 80, false);
-// let dep2 = new Deputat("Vitalii", "Danilov", 55, 0, 100000, 69, true);
-//
-// let d1 = dep2.takeBribe(50);
-//
-//
-//
-// let allBrTakers = getAllBrTakers("bribeTaker");
-// console.log(allBrTakers + " Це функція getAllBrTakers");
-
-// console.log(newD);
-
-//
 class Fraction {
-    depList: string[];
+    // depList: string[];
     fractName: string;
 
     constructor(fractName) {
@@ -161,8 +160,6 @@ class Fraction {
 
     delAllDeps() {
         for (let i = 0; i < allDeps.length; i++) {
-            // console.log("Видалено " + allDeps[i].lastName);
-            // allDeps.splice(i, 1);
             delete allDeps[i]
         }
     }
@@ -179,7 +176,7 @@ class Fraction {
         console.log(bribe[0] + " Найбільший хабар");
         for (let i = 0; i < allDeps.length; i++) {
             if (allDeps[i].sizeOfBribe === bribe[0]) {
-            console.log(allDeps[i].lastName)
+                console.log(allDeps[i].lastName)
             }
         }
     }
@@ -187,7 +184,7 @@ class Fraction {
     delAllBrTakers() {
         for (let i = 0; i < allDeps.length; i++) {
             if (allDeps[i].bribeTaker === true) {
-                console.log("Хабарника " + allDeps[i].lastName + " знайдено й видалено");
+                console.log(`Хабарника ${allDeps[i].lastName} знайдено й видалено`);
                 allDeps.splice(i, 1);
             }
         }
@@ -203,13 +200,16 @@ class Fraction {
     }
 }
 
-// Створюю нових депутатів
 let newD1 = addNewDep("Volod", "Bod", 30, false, 0);
 let newD2 = addNewDep("Vova", "B", 45, true, 500);
-// Створюю нову фракцію
+
 let solidarn = new Fraction("Solidarnistj");
+
 // Додаю депутата у фракцію
 solidarn.addDeputat("Burmas", "UA");
+
+let all = getAllDeps();
+console.log(all);
 
 // Видаляю депутата
 // solidarn.delDeputat("Hodowanyi");
@@ -228,3 +228,111 @@ solidarn.addDeputat("Burmas", "UA");
 
 // вивести найбільшого хабарника
 // solidarn.showMostBrTakers();
+
+class VerhRada {
+    allFractions: string[] = ["Слуга народу", "Європейська Солідарність", "Голос"];
+
+    showAllFractions() {
+        for (let i = 0; i < this.allFractions.length; i++) {
+            console.log(this.allFractions[i])
+        }
+    }
+
+    showSomeFraction(name) {
+        for (let i = 0; i < this.allFractions.length; i++) {
+            if (this.allFractions[i] == name) {
+                console.log(this.allFractions[i]);
+            }
+        }
+    }
+
+    addFraction(name) {
+        this.allFractions.push(name);
+    }
+
+    delFraction(name) {
+        for (let i = 0; i < this.allFractions.length; i++) {
+            if (this.allFractions[i] === name) {
+                console.log("Знайдено " + this.allFractions[i]);
+                this.allFractions.splice(i, 1)
+            }
+        }
+    }
+
+    addDepToFraction(frName, depName) {
+        for (let i = 0; i < this.allFractions.length; i++) {
+            if (this.allFractions[i] == frName) {
+                for (let i = 0; i < allDeps.length; i++) {
+                    if (allDeps[i].lastName === depName) {
+                        allDeps[i].fractionName = frName;
+                        allDeps[i].isMemberOfFraction = true;
+                        console.log("Додано у фракцію депутата - " + allDeps[i].lastName);
+                        return
+                    }
+                }
+                console.log("Депутата не знайдено");
+                return
+            }
+        }
+        console.log("фракцію не знайдено");
+    }
+
+    delDepfromFraction(frName, depName) {
+        for (let i = 0; i < allDeps.length; i++) {
+            if (allDeps[i].lastName === depName && allDeps[i].fractionName === frName) {
+                allDeps[i].fractionName = "" && allDeps[i].isMemberOfFraction === false;
+                console.log("Знайдено на видалення з фракції - " + allDeps[i].lastName)
+            }
+        }
+        return ("Депутата чи фракцію не знайдено")
+    }
+
+    showBrDepsInFraction(frName) {
+        for (let i = 0; i < allDeps.length; i++) {
+            if (allDeps[i].fractionName == frName &&
+                allDeps[i].bribeTaker == true &&
+                allDeps[i].sizeOfBribe > 0) {
+                console.log("Знайдено хабарника фракції - " + allDeps[i].lastName)
+            }
+        }
+        return ("Хабарника фракції не знайдено")
+    }
+
+    showMostBrDepsInFraction(frName) {
+        let bribe1 = [];
+        for (let i = 0; i < allDeps.length; i++) {
+            if (allDeps[i].fractionName === frName) {
+            bribe1.push(allDeps[i].sizeOfBribe);
+            }
+        }
+        bribe1.sort((a, b) => {
+            return b - a;
+        });
+        console.log(bribe1[0] + " Найбільший хабар");
+        for (let i = 0; i < allDeps.length; i++) {
+            if (allDeps[i].sizeOfBribe === bribe1[0]) {
+                console.log(allDeps[i].lastName)
+            }
+        }
+    }
+
+    showAllDepInFraction(frName) {
+        for (let i = 0; i < allDeps.length; i++) {
+            if (allDeps[i].fractionName === frName) {
+            console.log(allDeps[i].lastName)
+            }
+        }
+    }
+}
+
+// let vr1 = new VerhRada();
+// vr1.addFraction("Батьківщина");
+// vr1.delFraction("Ukraine-2");
+// vr1.showAllFractions();
+// vr1.showSomeFraction("Європейська Солідарність");
+// vr1.delDepfromFraction("Європейська Солідарність", "Kolodii");
+// let getAll = getAllDeps();
+// vr1.showBrDepsInFraction("Європейська Солідарність");
+// vr1.addDepToFraction("Слуга народу", "Burmas");
+// vr1.showMostBrDepsInFraction("Слуга народу");
+// vr1.showAllDepInFraction("Слуга народу");
